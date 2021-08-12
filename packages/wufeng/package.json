@@ -1,0 +1,21 @@
+{
+  "name": "wufeng",
+  "version": "0.0.1",
+  "description": "重剑无锋，大巧不工",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "typings": "dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "react": ">=16.8.6"
+  },
+  "dependencies": {
+    "@alita/react": "0.1.1"
+  }
+}
