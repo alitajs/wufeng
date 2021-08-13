@@ -1,5 +1,5 @@
 {
-  "name": "@alita/icons",
+  "name": "@alita/leancloud",
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
@@ -17,6 +17,8 @@
     "build": "father-build"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "leancloud-storage": "^4.11.1"
+  }
 }
