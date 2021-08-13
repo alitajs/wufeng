@@ -1,0 +1,23 @@
+:host {
+  position: relative;
+  z-index: 0;
+  display: block;
+
+  flex: 1;
+
+  width: 100%;
+  height: 100%;
+
+  /* stylelint-disable */
+  margin: 0 !important;
+
+  padding: 0 !important;
+  overflow-y: auto;
+  touch-action: pan-y;
+
+  will-change: scroll-position;
+  /* stylelint-enable */
+
+  -webkit-overflow-scrolling: touch;
+  overscroll-behavior-y: contain;
+}

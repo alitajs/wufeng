@@ -1,0 +1,36 @@
+{
+  "name": "yinhu",
+  "version": "0.2.0",
+  "description": "alita mobile component",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.js",
+  "es2015": "dist/esm/index.mjs",
+  "es2017": "dist/esm/index.mjs",
+  "types": "dist/custom-elements/index.d.ts",
+  "unpkg": "dist/yinhu/yinhu.esm.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alitajs/wufeng.git"
+  },
+  "authors": [
+    "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
+  ],
+  "files": [
+    "dist/",
+    "css/",
+    "loader/"
+  ],
+  "scripts": {
+    "build": "npm run clean && npm run css.sass && stencil build --docs --es5 --docs-json dist/docs.json",
+    "clean": "node scripts/clean.js",
+    "css.sass": "sass src/themes:./css",
+    "generate": "stencil generate",
+    "publish": "npm publish",
+    "start": "stencil build --dev --watch --serve"
+  },
+  "dependencies": {
+    "@stencil/core": "2.7.0-0",
+    "ionicons": "^5.5.2"
+  },
+  "license": "MIT"
+}
