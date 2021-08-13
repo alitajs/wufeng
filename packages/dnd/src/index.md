@@ -6,7 +6,7 @@ title: React dnd
 
 ## 简单移动 demo
 
-<code src="./demo.tsx" />
+<code src="./demos.tsx" />
 
 上例中，你可以自由的移动某一个 item 的位置，而其他 item 的位置保持不变
 
