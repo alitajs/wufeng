@@ -1,22 +1,35 @@
 {
   "compilerOptions": {
+    "outDir": "build/dist",
+    "module": "esnext",
     "target": "esnext",
+    "lib": ["esnext", "dom"],
+    "sourceMap": true,
+    "baseUrl": ".",
+    "jsx": "react-jsx",
+    "resolveJsonModule": true,
+    "allowSyntheticDefaultImports": true,
     "moduleResolution": "node",
-    "jsx": "preserve",
-    "allowJs": true,
-    "esModuleInterop": true,
-    "experimentalDecorators": true,
-    "strict": true,
     "forceConsistentCasingInFileNames": true,
     "noImplicitReturns": true,
     "suppressImplicitAnyIndexErrors": true,
-    "declaration": true,
+    "noUnusedLocals": true,
+    "allowJs": false,
     "skipLibCheck": true,
+    "experimentalDecorators": true,
+    "strict": true,
     "paths": {
       "@/*": ["./packages/app/src/*"],
       "@@/*": ["./packages/app/src/.umi/*"]
     }
   },
-  "exclude": ["node_modules", "dist", "**/*.spec.ts", "lib", "fixtures", "examples"],
-  "include": ["./.eslintrc.js", "./packages/**/*"]
+  "include": [
+    "./.eslintrc.js",
+    "**/packages/**/src/**/*",
+    "**/docs/**/*",
+    "scripts/**/*",
+    "packages",
+    "scripts"
+  ],
+  "exclude": ["node_modules", "build", "dist", "scripts", "src/.umi/*", "webpack", "jest"]
 }

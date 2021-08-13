@@ -2,7 +2,7 @@
 package.json
 .umi
 .umi-production
-/dist
+dist
 .dockerignore
 .DS_Store
 .eslintignore
@@ -35,3 +35,5 @@ src/assets/**
 config.xml
 *.jpg
 *.png
+css
+packages/react/src/react-component-lib

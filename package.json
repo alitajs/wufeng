@@ -1,50 +1,20 @@
 {
-  "private": true,
-  "workspaces": [
-    "packages/*"
+  "authors": [
+    "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
   ],
-  "description": "重剑无锋，大巧不工",
-  "main": "index.js",
-  "scripts": {
-    "build": "cd packages/wufeng && father-build",
-    "g:pages": "cd packages/app && alita g pages",
-    "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
-    "lint-staged": "lint-staged",
-    "lint-staged:js": "eslint --ext .js,.jsx,.ts,.tsx --format=pretty ./packages",
-    "lint:fix": "eslint --fix --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages && npm run lint:style",
-    "lint:js": "eslint --cache --ext .js,.jsx,.ts,.tsx --format=pretty ./packages",
-    "lint:prettier": "prettier --check \"packages/**/*\" --end-of-line auto",
-    "lint:style": "stylelint --fix \"packages/**/*.less\" --syntax less",
-    "prettier": "prettier -c --write \"packages/**/*\"",
-    "start:app": "cross-env APP_ROOT=packages/app alita dev",
-    "test": "umi-test",
-    "test:coverage": "umi-test --coverage"
-  },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
-  },
-  "lint-staged": {
-    "**/*.less": "stylelint --syntax less",
-    "**/*.{js,jsx}": "npm run lint-staged:js",
-    "**/*.{js,ts,tsx,json,jsx,less}": [
-      "npm run prettier",
-      "git add"
-    ]
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alitajs/wufeng.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/alitajs/wufeng/issues"
   },
-  "homepage": "https://github.com/alitajs/wufeng#readme",
+  "description": "重剑无锋，大巧不工",
   "devDependencies": {
     "@alita/test": "^0.0.4",
-    "@umijs/fabric": "^2.6.2",
+    "@alitajs/react-output-target": "^0.0.9",
+    "@stencil/sass": "^1.3.2",
+    "@types/node": "^15.12.2",
+    "@types/puppeteer": "5.4.3",
+    "@types/react": "^17.0.0",
+    "@types/react-dom": "^17.0.0",
+    "@umijs/fabric": "2.6.4",
     "@umijs/test": "^3.5.17",
     "alita": "^2.8.14",
     "cross-env": "^7.0.3",
@@ -53,8 +23,59 @@
     "husky": "^7.0.1",
     "lerna": "^4.0.0",
     "lint-staged": "^11.1.2",
+    "np": "^3.1.0",
     "prettier": "^2.3.2",
+    "puppeteer": "5.5.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1",
+    "sass": "^1.26.10",
     "stylelint": "^13.13.1",
+    "typescript": "^4.1.3",
     "yorkie": "^2.0.0"
-  }
+  },
+  "engines": {
+    "node": ">=10.0.0"
+  },
+  "gitHooks": {
+    "pre-commit": "lint-staged",
+    "commit-msg": "fabric verify-commit"
+  },
+  "homepage": "https://github.com/alitajs/wufeng#readme",
+  "keywords": [],
+  "license": "ISC",
+  "lint-staged": {
+    "**/*.less": "stylelint --syntax less",
+    "**/*.{ts,tsx}": "npm run lint-staged:js",
+    "**/*.{ts,tsx,json,jsx,less}": [
+      "git add",
+      "prettier --write"
+    ]
+  },
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alitajs/wufeng.git"
+  },
+  "scripts": {
+    "bootstrap": "lerna bootstrap --use-workspaces",
+    "build": "lerna run build",
+    "g:pages": "cd packages/app && alita g pages",
+    "lint": "npm run lint:js && npm run lint:style && npm run lint:prettier",
+    "lint-staged": "lint-staged",
+    "lint-staged:js": "eslint --ext .ts,.tsx ",
+    "lint:fix": "eslint --fix --cache --ext .ts,.tsx --format=pretty ./packages && npm run lint:style",
+    "lint:js": "eslint --cache --ext .ts,.tsx --format=pretty ./packages",
+    "lint:prettier": "prettier -c --write \"packages/**/*\" --end-of-line auto",
+    "lint:style": "stylelint --fix \"packages/**/*.less\" --syntax less",
+    "prettier": "prettier -c --write \"packages/**/*\"",
+    "publish": "lerna publish",
+    "start:app": "cross-env APP_ROOT=packages/app alita dev",
+    "start:yh": "cd packages/yinhu && yarn run start",
+    "test": "umi-test",
+    "test:coverage": "umi-test --coverage",
+    "tsc": "tsc --noEmit"
+  },
+  "workspaces": [
+    "packages/*"
+  ]
 }

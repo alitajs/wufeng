@@ -9,6 +9,11 @@ package-lock.json
 
 # production
 dist
+lib
+packages/react/src/react-component-lib
+packages/react/src/components.ts
+/build
+**/css
 
 # misc
 .DS_Store
@@ -16,3 +21,6 @@ dist
 # umi
 .umi
 .umi-production
+
+# testing
+/coverage

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <title>Stencil Component Starter</title>
+
+    <link href="/build/yinhu.css" rel="stylesheet" />
+
+    <script type="module" src="/build/yinhu.esm.js"></script>
+    <script nomodule src="/build/yinhu.js"></script>
+    <style>
+      /* // 应该在项目中引入这里为了测试需要，先在这里引入 */
+      :root {
+        --yh-color-primary: #3880ff;
+        --yh-color-primary-rgb: 56, 128, 255;
+        --yh-color-primary-contrast: #ffffff;
+        --yh-color-primary-contrast-rgb: 255, 255, 255;
+        --yh-color-primary-shade: #3171e0;
+        --yh-color-primary-tint: #4c8dff;
+
+        --yh-color-secondary: #3dc2ff;
+        --yh-color-secondary-rgb: 61, 194, 255;
+        --yh-color-secondary-contrast: #ffffff;
+        --yh-color-secondary-contrast-rgb: 255, 255, 255;
+        --yh-color-secondary-shade: #36abe0;
+        --yh-color-secondary-tint: #50c8ff;
+
+        --yh-color-tertiary: #5260ff;
+        --yh-color-tertiary-rgb: 82, 96, 255;
+        --yh-color-tertiary-contrast: #ffffff;
+        --yh-color-tertiary-contrast-rgb: 255, 255, 255;
+        --yh-color-tertiary-shade: #4854e0;
+        --yh-color-tertiary-tint: #6370ff;
+
+        --yh-color-success: #2dd36f;
+        --yh-color-success-rgb: 45, 211, 111;
+        --yh-color-success-contrast: #ffffff;
+        --yh-color-success-contrast-rgb: 255, 255, 255;
+        --yh-color-success-shade: #28ba62;
+        --yh-color-success-tint: #42d77d;
+
+        --yh-color-warning: #ffc409;
+        --yh-color-warning-rgb: 255, 196, 9;
+        --yh-color-warning-contrast: #000000;
+        --yh-color-warning-contrast-rgb: 0, 0, 0;
+        --yh-color-warning-shade: #e0ac08;
+        --yh-color-warning-tint: #ffca22;
+
+        --yh-color-danger: #eb445a;
+        --yh-color-danger-rgb: 235, 68, 90;
+        --yh-color-danger-contrast: #ffffff;
+        --yh-color-danger-contrast-rgb: 255, 255, 255;
+        --yh-color-danger-shade: #cf3c4f;
+        --yh-color-danger-tint: #ed576b;
+
+        --yh-color-dark: #222428;
+        --yh-color-dark-rgb: 34, 36, 40;
+        --yh-color-dark-contrast: #ffffff;
+        --yh-color-dark-contrast-rgb: 255, 255, 255;
+        --yh-color-dark-shade: #1e2023;
+        --yh-color-dark-tint: #383a3e;
+
+        --yh-color-medium: #92949c;
+        --yh-color-medium-rgb: 146, 148, 156;
+        --yh-color-medium-contrast: #ffffff;
+        --yh-color-medium-contrast-rgb: 255, 255, 255;
+        --yh-color-medium-shade: #808289;
+        --yh-color-medium-tint: #9d9fa6;
+
+        --yh-color-light: #f4f5f8;
+        --yh-color-light-rgb: 244, 245, 248;
+        --yh-color-light-contrast: #000000;
+        --yh-color-light-contrast-rgb: 0, 0, 0;
+        --yh-color-light-shade: #d7d8da;
+        --yh-color-light-tint: #f5f6f9;
+      }
+
+      .grid-demo-item-block {
+        height: 100%;
+        color: #999999;
+        text-align: center;
+        background: #f5f5f5;
+        border: solid 1px #999999;
+      }
+    </style>
+    <script>
+      function change(a) {
+        console.log(a);
+      }
+    </script>
+  </head>
+
+  <body>
+    <yh-page>
+      <yh-header> 123 </yh-header>
+      <yh-content>
+        <yh-grid columns="3" gap="8">
+          <yh-grid-item>
+            <div class="grid-demo-item-block">A</div>
+          </yh-grid-item>
+          <yh-grid-item>
+            <div class="grid-demo-item-block">B</div>
+          </yh-grid-item>
+          <yh-grid-item>
+            <div class="grid-demo-item-block">C</div>
+          </yh-grid-item>
+          <yh-grid-item>
+            <div class="grid-demo-item-block">D</div>
+          </yh-grid-item>
+          <yh-grid-item>
+            <div class="grid-demo-item-block">E</div>
+          </yh-grid-item>
+        </yh-grid>
+      </yh-content>
+      <yh-footer>123</yh-footer>
+    </yh-page>
+  </body>
+</html>
