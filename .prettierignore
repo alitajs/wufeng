@@ -35,6 +35,8 @@ src/assets/**
 config.xml
 *.jpg
 *.png
+*.md
 css
 packages/react/src/react-component-lib
 packages/yinhu/www
+packages/yinhu/loader

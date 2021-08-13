@@ -2,6 +2,7 @@
 
 <!-- Auto Generated Below -->
 
+
 ## Properties
 
 | Property      | Attribute      | Description                                                                                                                                                                                                     | Type                                       | Default     |
@@ -15,6 +16,7 @@
 | `size`        | `size`         | The button size.                                                                                                                                                                                                | `"large" \| "middle" \| "mini" \| "small"` | `'middle'`  |
 | `type`        | `type`         | The type of the button.                                                                                                                                                                                         | `"button" \| "reset" \| "submit"`          | `'button'`  |
 
+
 ## Events
 
 | Event      | Description                          | Type                |
@@ -23,6 +25,7 @@
 | `aliClick` | Emitted when the button is clicked.  | `CustomEvent<void>` |
 | `aliFocus` | Emitted when the button has focus.   | `CustomEvent<void>` |
 
----
 
-_Built with [StencilJS](https://stenciljs.com/)_
+----------------------------------------------
+
+*Built with [StencilJS](https://stenciljs.com/)*
