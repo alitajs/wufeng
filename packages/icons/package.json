@@ -1,0 +1,19 @@
+{
+  "name": "@alita/icons",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alitajs/wufeng.git"
+  },
+  "authors": [
+    "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
+  ],
+  "scripts": {
+    "build": "node scripts/g.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
