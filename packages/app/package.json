@@ -19,6 +19,7 @@
   "license": "ISC",
   "dependencies": {
     "@alita/react": "0.1.1",
-    "wufeng":"0.0.1"
+    "wufeng-model": "0.0.1",
+    "wufeng": "0.0.1"
   }
 }
