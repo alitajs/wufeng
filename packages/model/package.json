@@ -1,0 +1,29 @@
+{
+  "name": "wufeng-model",
+  "version": "0.0.1",
+  "description": "",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/model/src/index.d.ts",
+  "typings": "dist/model/src/index.d.ts",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alitajs/wufeng.git"
+  },
+  "authors": [
+    "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
+  ],
+  "scripts": {
+    "build": "father-build"
+  },
+  "keywords": [],
+  "license": "ISC",
+  "dependencies": {
+    "dva": "^2.4.1",
+    "keymaster": "^1.6.2",
+    "redux": "^4.1.1"
+  },
+  "devDependencies": {
+    "@types/keymaster": "^1.6.30"
+  }
+}
