@@ -1,14 +1,17 @@
 import React from 'react';
 import type { FC } from 'react';
-import { WFPage } from 'wufeng';
+import { WFPage, WFComponentsWare, WFPhoneFrame } from 'wufeng';
 
-const ComponentFrame: FC = () => <div>1</div>;
 const DisplayFrame: FC = () => <div>2</div>;
 const RateFrame: FC = () => <div>3</div>;
 
 const IndexPage: FC = () => {
   return (
-    <WFPage ComponentFrame={ComponentFrame} DisplayFrame={DisplayFrame} RateFrame={RateFrame} />
+    <WFPage
+      ComponentFrame={WFComponentsWare}
+      DisplayFrame={() => <WFPhoneFrame url="http://localhost:8000/#/" />}
+      RateFrame={RateFrame}
+    />
   );
 };
 
