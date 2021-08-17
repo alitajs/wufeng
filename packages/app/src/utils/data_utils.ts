@@ -1,4 +1,4 @@
-import type { Component, ListItemProps } from '@/schema/index';
+import type { Component, ListItemProps, ComponentGroup } from '@/schema/index';
 
 import { DataComponet } from './data_componet';
 
@@ -13,6 +13,22 @@ export function getTestSouData() {
  */
 export function getItemById(data: Component[], id: number): Component {
   const newData = data.filter((item) => item.id === id);
+  return { ...(newData[0] || {}) };
+}
+
+/**
+ * 根据type取的数组项
+ * @param {*} data
+ * @param {*} type
+ */
+export function getItemByType(data: ComponentGroup[], type: string): Component {
+  let newData: Component[] = [];
+  for (let i = 0; i < data.length; ) {
+    newData = data[i].data.filter((d) => d.type === type);
+    if (newData) {
+      break;
+    }
+  }
   return { ...(newData[0] || {}) };
 }
 

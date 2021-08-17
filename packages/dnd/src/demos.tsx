@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import { Drag, Drop, DndProvider, DataUtils } from './index';
+import { Drag, Drop, DndProvider, DataUtils, DropTargetMonitor } from './index';
 
 interface PageProps {}
 
@@ -14,8 +14,8 @@ const dataList: Item[] = new Array(10)
 
 const Component: FC<PageProps> = () => {
   const [list, setList] = useState(dataList);
-  // @ts-ignore
-  const onDrops = (props, monitor, data) => {
+
+  const onDrops = (props: any, monitor: DropTargetMonitor, data: any) => {
     let startIndex = 0;
     let endIndex = 0;
     for (let key = list.length - 1; key >= 0; ) {
