@@ -4,8 +4,8 @@
   "description": "重剑无锋，大巧不工",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
-  "types": "dist/index.d.ts",
-  "typings": "dist/index.d.ts",
+  "types": "dist/src/index.d.ts",
+  "typings": "dist/src/index.d.ts",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alitajs/wufeng.git"
@@ -22,6 +22,7 @@
     "react": ">=16.8.6"
   },
   "dependencies": {
-    "@alita/react": "0.1.1"
+    "@alita/react": "0.1.1",
+    "@alitajs/dnd": "1.0.1"
   }
 }
