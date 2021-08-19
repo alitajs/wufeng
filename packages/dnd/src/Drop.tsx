@@ -16,7 +16,7 @@ interface DropProps {
 }
 
 const overStyle = {
-  height: '100%',
+  // height: '100%',
   border: '1px dashed black',
 };
 const defaultStyle = {};
@@ -34,7 +34,7 @@ const Drop: FC<DropProps> = ({
   const [{ isOver, canDrop }, drop] = useDrop({
     accept: type,
     drop: (item, monitor) => onDrop?.((item as DragDataObject).data, monitor, data),
-    // hover: (item, monitor) => onHover?.((item as DragDataObject).data, monitor, data),
+    hover: (item, monitor) => onHover?.((item as DragDataObject).data, monitor, data),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
