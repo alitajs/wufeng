@@ -7,6 +7,7 @@ interface DragDataObject extends DragObjectWithType {
 }
 interface DropProps {
   onDrop: (item: any, monitor: DropTargetMonitor, data: any) => void;
+  onHover: (item: any, monitor: DropTargetMonitor, data: any) => void;
   data: any;
   type?: string;
   style?: React.CSSProperties;
@@ -22,6 +23,7 @@ const defaultStyle = {};
 const dropStyle = {};
 const Drop: FC<DropProps> = ({
   onDrop,
+  onHover,
   data,
   children,
   type = 'dragBox',
@@ -31,7 +33,8 @@ const Drop: FC<DropProps> = ({
 }) => {
   const [{ isOver, canDrop }, drop] = useDrop({
     accept: type,
-    drop: (item, monitor) => onDrop((item as DragDataObject).data, monitor, data),
+    drop: (item, monitor) => onDrop?.((item as DragDataObject).data, monitor, data),
+    // hover: (item, monitor) => onHover?.((item as DragDataObject).data, monitor, data),
     collect: (monitor) => ({
       isOver: monitor.isOver(),
       canDrop: monitor.canDrop(),
@@ -39,9 +42,9 @@ const Drop: FC<DropProps> = ({
   });
   let trueStyle = style;
   if (isOver) {
-    trueStyle = onOverStyle;
+    trueStyle = { ...trueStyle, ...onOverStyle };
   } else if (canDrop) {
-    trueStyle = canDropStyle;
+    trueStyle = { ...trueStyle, ...canDropStyle };
   }
   return (
     <div ref={drop} style={{ ...trueStyle }}>
