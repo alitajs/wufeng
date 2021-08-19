@@ -1,9 +1,10 @@
 import { dynamic } from 'alita';
-import { wufeng } from 'wufeng';
+import { wufengController } from 'wufeng';
+import * as Yinhu from '@alita/react';
 import { getItemByType } from './data_utils';
 import { DataComponet } from './data_componet';
 
-const antdMobile = ['accordion', 'action-sheet', 'button'];
+const antdMobile = ['accordion', 'action-sheet', 'button', 'icon'];
 
 function lineToHump(s: string) {
   const a = s.split('-');
@@ -14,12 +15,24 @@ function lineToHump(s: string) {
   }
   return result;
 }
+
+function humpToLine(name: string) {
+  return name.replace(/([A-Z])/g, '-$1').toLowerCase();
+}
+
 antdMobile.forEach((item: string) => {
   const options = getItemByType(DataComponet, lineToHump(item)) as any;
   if (options?.type) {
-    wufeng.registerComponent(
+    wufengController.registerComponent(
       dynamic(() => import(`antd-mobile/lib/${item}/index`).then((res) => res.default as any)),
       { name: lineToHump(item), ...options },
     );
+  }
+});
+
+Object.keys(Yinhu).forEach((item: string) => {
+  const options = getItemByType(DataComponet, lineToHump(item)) as any;
+  if (options?.type) {
+    wufengController.registerComponent(Yinhu[item], { name: `YH${item}`, ...options });
   }
 });
