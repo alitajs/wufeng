@@ -7,6 +7,6 @@ export { default as WFPhoneFrame } from './PhoneFrame';
 const wufeng = new WuFeng();
 WuFeng.singletonInstance = wufeng;
 
-export { wufeng };
+export { wufeng as wufengController };
 export * from '@alitajs/dnd';
-export * from './types';
+export * from '@wufeng/types';

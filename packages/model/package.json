@@ -1,5 +1,5 @@
 {
-  "name": "wufeng-model",
+  "name": "@wufeng/model",
   "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
@@ -19,6 +19,7 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
+    "@wufeng/types": "0.0.1",
     "dva": "^2.4.1",
     "keymaster": "^1.6.2",
     "redux": "^4.1.1"

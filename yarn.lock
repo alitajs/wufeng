@@ -10,10 +10,10 @@
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
 
-"@alitajs/aconsole@2.8.14":
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/@alitajs/aconsole/-/aconsole-2.8.14.tgz#65d26fd0bdadfe18d87b3678a59a7d6a7a3132fa"
-  integrity sha512-T4JHQ8hmx/BH+RN2SiuQjYV5qIOCTtHlGWU4TLWUyOdou3TgtLTGBIKYDxg9ntpyh4jQMfr6tJN7h3JgVwx0NQ==
+"@alitajs/aconsole@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/aconsole/-/aconsole-2.8.15-alpha.2.tgz#158101d8e205404b978b433b3fce16b2d74bbee9"
+  integrity sha512-X694KN8WVbgWbI/6Vv3NWe7mGH3VPgfS94gmof3haBfrwaX4aCPjAF0fipCLbnHKXnM4ZSRBura4FUZEpBAhyw==
   dependencies:
     "@alitajs/inspx" "0.0.2"
     vconsole "3.5.2"
@@ -29,10 +29,10 @@
     react-document-title "^2.0.3"
     react-router-dom "^5.1.2"
 
-"@alitajs/cordova@2.8.14":
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/@alitajs/cordova/-/cordova-2.8.14.tgz#27d01e552837010cf2d6bb051a1aa104d20f6d0a"
-  integrity sha512-0Mwo0HaLHsO4icWmVdv7U2ukUdb9lSU2TnbTKQV2yrDQVysLFOURgG8X4BKjI9rTUBGB0uZFhsQ41C9azgmBoQ==
+"@alitajs/cordova@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/cordova/-/cordova-2.8.15-alpha.2.tgz#321bba36fd8d0c07695c122dc3e2ae46a8f0332e"
+  integrity sha512-5Chk3rhNCUbYcDo+Vi1+NwpdmIxSVT/tFxZP39ATCxj730MIOlV+qauEiafhpSY4RKLN46z9X+3ntXuRi4FkVw==
   dependencies:
     cordova-app-hello-world "^4.0.0"
     cordova-common "^3.1.0"
@@ -47,15 +47,15 @@
     tmp "^0.1.0"
     valid-identifier "^0.0.2"
 
-"@alitajs/generate@2.8.14":
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/@alitajs/generate/-/generate-2.8.14.tgz#0ce77e5b7e301809d42b65cddb2d162161643b6a"
-  integrity sha512-BnNwXMldTv4Tq5LjWeT3u4NwN5ALgfjdesLTuXrpFT+WlhuF2DkeKMiSOjOaG3ATzdIAxeymh8RiH1NF+4AgWg==
+"@alitajs/generate@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/generate/-/generate-2.8.15-alpha.2.tgz#d07fd89fd5b3df3c9c922feb7cd5108c3c701111"
+  integrity sha512-ZmNwBmET1J1LBBCdicexyiuw81OC+FKb8t6EGjk6ZVAabEaKnHXvfe1WMA5oCDTgPbeETlI9ghHuCBBhnTnMhw==
 
-"@alitajs/hd@2.8.14":
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/@alitajs/hd/-/hd-2.8.14.tgz#6a86b98986a8921ad5defb2d7be61cd2917568cc"
-  integrity sha512-fuhPXvuPNghJ6wux5WIVVg8yPeDp53+fKKmtRHy4tjtNRpCrudgD75ZoH3nhRARz5MyJg2woz1LA3NMLNx552w==
+"@alitajs/hd@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/hd/-/hd-2.8.15-alpha.2.tgz#c16b6d889b3edb0e6d5b32a9c8f19faa47c0991a"
+  integrity sha512-nlSiW4f7z13KgkycIDurM17wAmQrJP7Mbvl4PaKsiyndNcbMtb5Mdv1G7pmJJsNHV3nBkfGlzdCn2CLbS5AaDw==
   dependencies:
     postcss-plugin-px2rem "0.8.1"
 
@@ -66,31 +66,41 @@
   dependencies:
     "@radix-ui/popper" "^0.0.10"
 
-"@alitajs/keep-alive@2.8.14":
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/@alitajs/keep-alive/-/keep-alive-2.8.14.tgz#60e2fe21dfd6367b2257403f663e1446fdc31530"
-  integrity sha512-pyvFTbHawT+M74hzMIIR83SbW8f5PQjnY6dUU/5qIebVX7RuxNEBbQY7TagP3TaCFZqM+xQafrgrwtgzQq/wDg==
+"@alitajs/keep-alive@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/keep-alive/-/keep-alive-2.8.15-alpha.2.tgz#6592bd2822208db422c414dace5f65d5ee4235e3"
+  integrity sha512-eZs6YHFyxW0KBsp6k5T4zWChYAN6WD5njc9nSdqKZusZ/Exu99v/Kph7/luSSkTU9AZ3NOqGC3dwPo9h1vFT+w==
   dependencies:
     react-router-config "^5.1.1"
 
-"@alitajs/layout@2.8.14":
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/@alitajs/layout/-/layout-2.8.14.tgz#5b8db41d1c907f44b01476d81c3bf66361995325"
-  integrity sha512-Cd+h1C7V9b2+E+vAqsXsXGN29o/D0lyjbEqZeXD5VGrM04vhMswqm1WPn8kOJQHQJzkbM+e1B97+FJK+9cPwiA==
+"@alitajs/layout@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/layout/-/layout-2.8.15-alpha.2.tgz#08a3c86ddde331fa70904f9e09882944b8b69599"
+  integrity sha512-FNQ70IcSqD1reyI0UW55UQk5P4CgqAYxURsyV+gj+/0OWfX/2EwFO8SuJDYmtAwWqoMeze49kujVdB62UW+abQ==
   dependencies:
     "@alitajs/alita-layout" "2.4.7"
 
-"@alitajs/main-path@2.8.14":
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/@alitajs/main-path/-/main-path-2.8.14.tgz#2f9940926a861b4a19efc6cbe06a216f7ac9d7f6"
-  integrity sha512-MfjQSoVja9f+DL4gNJ0kyXOf9kWRVXVfYA8PqqPxOBjh5aD4vvIXZNpvZ0d11rkeab17DlYl5t6Du9kby50f8g==
+"@alitajs/main-path@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/main-path/-/main-path-2.8.15-alpha.2.tgz#3ef584d2b913611fd51d1f4d939af78fe7bb136c"
+  integrity sha512-FwFubd10MfAu72MIEdMeUolJUz2X3cKA9s8z4jvyMeytwyEwLEX1W8+nlmN3Bf7MvGFUu25rAxuyeD29rN9o7Q==
   dependencies:
-    "@alitajs/utils" "2.8.14"
+    "@alitajs/utils" "2.8.15-alpha.2"
 
-"@alitajs/plugin-layout@2.8.14":
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/@alitajs/plugin-layout/-/plugin-layout-2.8.14.tgz#0e9efe955e7d2ed5e95af26238cd2f23baa5ef52"
-  integrity sha512-NgkZzv+qShJ8HETb36rvQ+d66rs2HePa/nHHASaAAL/wiHg4b4Zx04n5oijM/rOR77snnT/A6OKXybx5sHcczA==
+"@alitajs/plugin-dva@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/plugin-dva/-/plugin-dva-2.8.15-alpha.2.tgz#e2516899197a7be6c216b3fa5d376159a36b2d18"
+  integrity sha512-WnpOYZVcc8hErSrI+xjXLatEDvi4pGKIFTtXaoauLA+kN9ZCe9PTUpcInM5lpOtkX63I0+9JQkjkvPJC4P9dAA==
+  dependencies:
+    babel-plugin-dva-hmr "^0.4.2"
+    dva "^2.6.0-beta.20"
+    dva-immer "^0.5.2"
+    dva-loading "^3.0.20"
+
+"@alitajs/plugin-layout@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/plugin-layout/-/plugin-layout-2.8.15-alpha.2.tgz#7ade25727fb5d99fc41d1be4a9cf4f5c75e040ed"
+  integrity sha512-usMFKDSNsDq1Q3lBRhIX9oOcHC/6vDjWPuWiIHqy4FqrrFK9h99yf39KA3r73RDxjzMSC8yyE17HI/t9NUFNwg==
   dependencies:
     "@umijs/route-utils" "^1.0.7"
     antd "^4.12.3"
@@ -102,47 +112,47 @@
   resolved "https://registry.yarnpkg.com/@alitajs/react-output-target/-/react-output-target-0.0.9.tgz#52c86e91251649f5b54f58819f419dd24c69e5e6"
   integrity sha512-ErQQ58QOWEMNKT4ySc5+p7uXJnbeq2NG/CHy54wK0U0nx0EJmyHpaQyYdJyDnccUZipSbASMQjzAvi9NWgVRTg==
 
-"@alitajs/retain-log@2.8.14":
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/@alitajs/retain-log/-/retain-log-2.8.14.tgz#953907789ec7cc848d24cc735f7425784f0abd69"
-  integrity sha512-qddcT3Bwr2gQNP7rejnEQxGx+i6sbv5V5Q8SXfxMdV9BvpZF92frNwnD96PflOB3fl5lzbokUHfZUYUT9GEZpA==
+"@alitajs/retain-log@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/retain-log/-/retain-log-2.8.15-alpha.2.tgz#17fb9058dcbc59f889bc8c5c29d7bbbc59de3743"
+  integrity sha512-ZT1h93DaUYJvMeUW7cWJRQT+xk4SK9NJkNfipltB967NRaImCR75Yd0ZYGJrxmdx3J0D3ZgeDnRaI7yV8FX8Dw==
 
-"@alitajs/router@2.8.14":
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/@alitajs/router/-/router-2.8.14.tgz#952c8c9b87fd00c676a1a4075582f75acba121cb"
-  integrity sha512-/By07q3b9Nql/NeN+OHQdgmBQzakcxGNgHo3VKc2e9BoMSLC94sZCOwECFZi0y6VsRubfbkxbNhU6JLEJVDmaA==
+"@alitajs/router@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/router/-/router-2.8.15-alpha.2.tgz#5b0751e43eeeb20cb1baa224472766aed059b070"
+  integrity sha512-SN1QNGO81r4IwiM7yKBG/ggEypW8WuYXbeXu+nR/GsCWtVvLJK+vYgMEgih/XC1jS1Tf51D6xm9shbEdpiViag==
 
-"@alitajs/routes@2.8.14":
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/@alitajs/routes/-/routes-2.8.14.tgz#eb6209b78a6872f7ea72f58a3435a3e91547825b"
-  integrity sha512-RuwEDNlyoyKOVVhW0cAGKZHDQIGIx23ijOkqkPX1cR52mO4/RDxgloSVyaY6vidL3bpzQJDtrmCElgd7MgBMtA==
+"@alitajs/routes@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/routes/-/routes-2.8.15-alpha.2.tgz#223037dfd5506ec838c601e3b8abd03470301f13"
+  integrity sha512-fCi8jsJU3OzHOYhqAghntbixOoZOFWULWyzVH23N0IQwn8gQNK/zwGtW16reMwrU4iwDybpTcqzvYH0yFiBPVw==
 
-"@alitajs/umi-presets-alita@2.8.14":
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/@alitajs/umi-presets-alita/-/umi-presets-alita-2.8.14.tgz#4ff3fc62ddcf0b6a763107a983af382112ec5424"
-  integrity sha512-XV7zXVKgpUbS7ohdk9Y0aB5P00kGvNjlxPn3Xq6Fp/1CbEbRuw9s6xDBvUhTm1mCl7agY/42MO91R58DVwYhSQ==
+"@alitajs/umi-presets-alita@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/umi-presets-alita/-/umi-presets-alita-2.8.15-alpha.2.tgz#faa30479388c6c89e282a0e3aa9f09b5151ee888"
+  integrity sha512-XqzupsIZNVAAZZkGJMYCSb4iyRPrrFWepS+Y3kpJ7uoKCOIZEpcMzM/jHLjAlg9R2ST5VXmhXBgab6apwmAGdQ==
   dependencies:
-    "@alitajs/aconsole" "2.8.14"
-    "@alitajs/cordova" "2.8.14"
-    "@alitajs/generate" "2.8.14"
-    "@alitajs/hd" "2.8.14"
-    "@alitajs/keep-alive" "2.8.14"
-    "@alitajs/layout" "2.8.14"
-    "@alitajs/main-path" "2.8.14"
-    "@alitajs/plugin-layout" "2.8.14"
-    "@alitajs/retain-log" "2.8.14"
-    "@alitajs/router" "2.8.14"
-    "@alitajs/routes" "2.8.14"
+    "@alitajs/aconsole" "2.8.15-alpha.2"
+    "@alitajs/cordova" "2.8.15-alpha.2"
+    "@alitajs/generate" "2.8.15-alpha.2"
+    "@alitajs/hd" "2.8.15-alpha.2"
+    "@alitajs/keep-alive" "2.8.15-alpha.2"
+    "@alitajs/layout" "2.8.15-alpha.2"
+    "@alitajs/main-path" "2.8.15-alpha.2"
+    "@alitajs/plugin-dva" "2.8.15-alpha.2"
+    "@alitajs/plugin-layout" "2.8.15-alpha.2"
+    "@alitajs/retain-log" "2.8.15-alpha.2"
+    "@alitajs/router" "2.8.15-alpha.2"
+    "@alitajs/routes" "2.8.15-alpha.2"
     "@umijs/plugin-antd" "0.9.1"
-    "@umijs/plugin-dva" "0.12.1"
     "@umijs/plugin-esbuild" "1.3.1"
     "@umijs/plugin-helmet" "1.1.3"
     "@umijs/plugin-request" "2.5.2"
 
-"@alitajs/utils@2.8.14":
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/@alitajs/utils/-/utils-2.8.14.tgz#e6a6cc113c9ba1757b08a89411dcc28df5256915"
-  integrity sha512-bLIzCVikFsjNgLxUdDX2keNEmwHTWscO0sOpfwfdRIWjoshDrqKTCvPj1UPN6OpD3EIbFRZS6Fokzd9LTMn6vA==
+"@alitajs/utils@2.8.15-alpha.2":
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/@alitajs/utils/-/utils-2.8.15-alpha.2.tgz#6661f807593c65e14fa8012c2ecd2bc919676cca"
+  integrity sha512-IyhJAyI+NfIcyreVWVJDgE5vWj1cUlIptle7llKKifdhiiLTA5DD+qanpe99qNh0nPzlALPvoDIsYejFfm1mXg==
 
 "@ant-design/colors@^6.0.0":
   version "6.0.0"
@@ -3975,16 +3985,6 @@
     antd "^4.1.3"
     antd-mobile "^2.3.1"
 
-"@umijs/plugin-dva@0.12.1":
-  version "0.12.1"
-  resolved "https://registry.yarnpkg.com/@umijs/plugin-dva/-/plugin-dva-0.12.1.tgz#2b01778a92af558286f34c60994bd1460aca8af9"
-  integrity sha512-wSCpN8AZRnipLk03x9HmRZkS5DYEdvrRdRWmYduYJzD02ydtOTbojQGjhime5vh1wLpr1PQoWkjWq8Z7E9Dl9Q==
-  dependencies:
-    babel-plugin-dva-hmr "^0.4.2"
-    dva "^2.6.0-beta.20"
-    dva-immer "^0.5.2"
-    dva-loading "^3.0.20"
-
 "@umijs/plugin-esbuild@1.3.1":
   version "1.3.1"
   resolved "https://registry.yarnpkg.com/@umijs/plugin-esbuild/-/plugin-esbuild-1.3.1.tgz#3747499715936a153643ef0572db4e242967ab46"
@@ -4322,12 +4322,12 @@ align-text@^0.1.1, align-text@^0.1.3:
     longest "^1.0.1"
     repeat-string "^1.5.2"
 
-alita@^2.8.14:
-  version "2.8.14"
-  resolved "https://registry.yarnpkg.com/alita/-/alita-2.8.14.tgz#104d2c1221f1a537075c85850ce87acd441a697e"
-  integrity sha512-jwspW/i1/qfTO31aB89e6Rva29jW+9D2vrvtwYYypqvHo4mORD/X9Amtj0czEHsK8WPE2dBaB5FprWM9m3/lVw==
+alita@next:
+  version "2.8.15-alpha.2"
+  resolved "https://registry.yarnpkg.com/alita/-/alita-2.8.15-alpha.2.tgz#66e1ff71ecba78cc1e93497d92f5d5220bccc102"
+  integrity sha512-pb8WlYB4R9fp4eVAAmINRzUqW5fumFWDnoGDs7bPOid+VOTRtdkmH5rkuN2CBTFcK27KRxh5NOqNMu/XWRWFKQ==
   dependencies:
-    "@alitajs/umi-presets-alita" "2.8.14"
+    "@alitajs/umi-presets-alita" "2.8.15-alpha.2"
     umi "3.4.15"
 
 alphanum-sort@^1.0.0:

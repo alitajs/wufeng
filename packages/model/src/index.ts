@@ -5,11 +5,7 @@ import type { Effect, Reducer, Subscription } from './connect';
 // import keymaster from "keymaster";
 
 export interface WuFengModelState {
-  views: any[];
-  showPage: number;
-  cneterscale: number;
   sourceData: any[];
-  hidevalue: string;
   components: any[];
   showItemData: any;
 }
@@ -24,22 +20,15 @@ export interface WuFengModelType {
     addchildrenCom: Effect;
     addItem: Effect;
     keyMoveItem: Effect;
-    initComponents: Effect;
-    changeScale: Effect;
-    changeHide: Effect;
-    dPage: Effect;
     moveItem: Effect;
     showItem: Effect;
     changeItemProp: Effect;
-    gPage: Effect;
-    changeShowPage: Effect;
     downloadCode: Effect;
   };
   reducers: {
     save: Reducer<WuFengModelState>;
   };
   subscriptions: {
-    setup: Subscription;
     keyEvent: Subscription;
   };
 }
@@ -48,22 +37,11 @@ const WuFengModel: WuFengModelType = {
   namespace: 'wufeng',
 
   state: {
-    views: [],
-    showPage: 0,
-    cneterscale: 75,
     sourceData: [],
-    hidevalue: 'true',
     components: [],
     showItemData: {},
   },
   subscriptions: {
-    setup({ dispatch, history }) {
-      return history.listen(() => {
-        dispatch({
-          type: 'initComponents',
-        });
-      });
-    },
     keyEvent({ dispatch }) {
       // keymaster("up", () => {
       //   dispatch({
@@ -147,43 +125,8 @@ const WuFengModel: WuFengModelType = {
         // });
       }
     },
-    *initComponents({ payload }, { call, put, select }) {
-      const { views, showPage } = yield select((state: any) => state.wufeng);
-      let pageIndex = showPage;
-      if (!views || views.length === 0 || views.length < showPage || !views[showPage].components) {
-        views.push({
-          name: 'home',
-          components: [],
-        });
-        pageIndex = 0;
-      }
-      yield put({
-        type: 'save',
-        payload: {
-          views,
-          showPage: pageIndex,
-        },
-      });
-    },
-    *changeScale({ payload }, { call, put, select }) {
-      yield put({
-        type: 'save',
-        payload: {
-          cneterscale: payload,
-        },
-      });
-    },
-    *changeHide({ payload }, { put }) {
-      yield put({
-        type: 'save',
-        payload: {
-          hidevalue: payload,
-        },
-      });
-    },
     *delItem({ payload }, { put, select }) {
-      const { views, showPage, showItemData } = yield select((state: any) => state.wufeng);
-      const { components } = views[showPage];
+      const { components, showItemData } = yield select((state: any) => state.wufeng);
       const data = deleteComponent(components, payload.id);
       if (showItemData && showItemData.id === payload.id) {
         yield put({
@@ -203,10 +146,8 @@ const WuFengModel: WuFengModelType = {
       }
     },
     *addchildrenCom({ payload }, { call, put, select }) {
-      const { sourceData, views, showPage } = yield select((state: any) => state.wufeng);
-      let { components } = views[showPage];
+      const { sourceData, components } = yield select((state: any) => state.wufeng);
       const { index, parentId, item } = payload;
-
       function findComAndAddComponent(arrs: any[], pId: string, i: any) {
         arrs.map((arr) => {
           const { childrenCom } = arr;
@@ -223,12 +164,10 @@ const WuFengModel: WuFengModelType = {
         });
         return arrs;
       }
-      components = findComAndAddComponent(components, parentId, item);
-      views[showPage].components = components;
       yield put({
         type: 'save',
         payload: {
-          views,
+          components: findComAndAddComponent(components, parentId, item),
         },
       });
     },
@@ -241,26 +180,23 @@ const WuFengModel: WuFengModelType = {
         });
         return;
       }
-      const { sourceData, views, showPage } = yield select((state: any) => state.wufeng);
-      const { components } = views[showPage];
+      const { sourceData, components } = yield select((state: any) => state.wufeng);
       const data = addComponent(
         sourceData,
         components,
         item,
         index === 'max' ? components.length : index,
       );
-      views[showPage].components = data.centerData;
       yield put({
         type: 'save',
         payload: {
-          views,
+          components: data.centerData,
         },
       });
     },
     *moveItem({ payload }, { call, put, select }) {
       const { dragIndex, hoverIndex, parentId } = payload;
-      const { views, showPage } = yield select((state: any) => state.wufeng);
-      const { components } = views[showPage];
+      const { components } = yield select((state: any) => state.wufeng);
       function findComMobeItem(arrs: any[], pId: string, dIndex: number, hIndex: number) {
         if (pId !== 'wufengmainroot') {
           arrs.map((item) => {
@@ -279,11 +215,10 @@ const WuFengModel: WuFengModelType = {
         }
         return moveComponent(arrs, dragIndex, hoverIndex);
       }
-      views[showPage].components = findComMobeItem(components, parentId, dragIndex, hoverIndex);
       yield put({
         type: 'save',
         payload: {
-          views,
+          components: findComMobeItem(components, parentId, dragIndex, hoverIndex),
         },
       });
     },
@@ -299,8 +234,7 @@ const WuFengModel: WuFengModelType = {
     *changeItemProp({ payload }, { call, put, select }) {
       const { id, key, value } = payload;
       if (!id) return;
-      const { views, showPage } = yield select((state: any) => state.wufeng);
-      let { components } = views[showPage];
+      const { components } = yield select((state: any) => state.wufeng);
       function findComAndChangeProp(arrs: any[], i: any, k: any, v: any) {
         arrs.map((item) => {
           const { childrenCom } = item;
@@ -329,68 +263,10 @@ const WuFengModel: WuFengModelType = {
         });
         return arrs;
       }
-      components = findComAndChangeProp(components, id, key, value);
       yield put({
         type: 'save',
         payload: {
-          components,
-        },
-      });
-    },
-    *gPage({ payload }, { call, put, select }) {
-      const { views } = yield select((state: any) => state.wufeng);
-      const getPageName = (view: any[], name: string): string => {
-        const check = views.filter((item: any) => item.name === name);
-        if (check.length) {
-          return getPageName(view, `${name}_`);
-        }
-        return name;
-      };
-      // eslint-disable-next-line
-      payload.name = getPageName(views, payload.name);
-      views.push(payload);
-      yield put({
-        type: 'save',
-        payload: {
-          views,
-        },
-      });
-    },
-    *dPage({ payload }, { call, put, select }) {
-      const { views, showPage } = yield select((state: any) => state.wufeng);
-      if (views.length === 1) {
-        alert('至少要保留一个页面');
-      } else {
-        const newViews: any[] = [];
-        views.map((item: any) => {
-          if (item.name !== payload.name) {
-            newViews.push(item);
-          }
-          return item;
-        });
-
-        yield put({
-          type: 'save',
-          payload: {
-            showPage: showPage - 1 < 0 ? 0 : showPage - 1,
-            views: newViews,
-          },
-        });
-      }
-    },
-    *changeShowPage({ payload }, { call, put, select }) {
-      const { views, showPage } = yield select((state: any) => state.wufeng);
-      let showPageNew = showPage;
-      views.map((item: any, index: number) => {
-        if (item.name === payload.name) {
-          showPageNew = index;
-        }
-        return item;
-      });
-      yield put({
-        type: 'save',
-        payload: {
-          showPage: showPageNew,
+          components: findComAndChangeProp(components, id, key, value),
         },
       });
     },

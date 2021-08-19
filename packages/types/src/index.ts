@@ -214,3 +214,11 @@ export interface Component {
 }
 
 export type Permission = 'read' | 'publish' | 'editCode' | 'editDesigns' | 'admin' | 'create';
+
+export type ComponentProps = Omit<Component, 'class'>;
+
+export interface PageDataItem {
+  id: number;
+  component: ComponentProps;
+  childrenCom: PageDataItem;
+}

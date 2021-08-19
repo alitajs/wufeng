@@ -1,4 +1,4 @@
-import type { Component, ListItemProps } from '@/schema/index';
+import type { ComponentProps, PageDataItem } from '@wufeng/types';
 
 // import { DataComponet } from "./data_componet";
 
@@ -11,12 +11,12 @@ import type { Component, ListItemProps } from '@/schema/index';
  * @param {*} data
  * @param {*} id
  */
-export function getItemById(data: Component[], id: number): Component {
+export function getItemById(data: ComponentProps[], id: number): ComponentProps {
   const newData = data.filter((item) => item.id === id);
   return { ...(newData[0] || {}) };
 }
 
-function getAddData(item: Component): ListItemProps {
+function getAddData(item: ComponentProps): PageDataItem {
   const data = {
     id: new Date().getTime(),
     component: JSON.parse(JSON.stringify(item)),
@@ -26,9 +26,9 @@ function getAddData(item: Component): ListItemProps {
 }
 
 export function addComponent(
-  leftData: ListItemProps[],
-  centerData: ListItemProps[],
-  item: Component,
+  leftData: PageDataItem[],
+  centerData: PageDataItem[],
+  item: ComponentProps,
   index: number,
 ) {
   const initData = { ...getAddData(item) };
@@ -36,7 +36,7 @@ export function addComponent(
   return { leftData, centerData };
 }
 
-export function deleteComponent(centerData: ListItemProps[], id: number) {
+export function deleteComponent(centerData: PageDataItem[], id: number) {
   const d = centerData;
   for (let key = d.length - 1; key >= 0; ) {
     if (d[key].id === id) {
@@ -50,7 +50,7 @@ export function deleteComponent(centerData: ListItemProps[], id: number) {
   return d;
 }
 
-function reorder(list: ListItemProps[], startIndex: number, endIndex: number): ListItemProps[] {
+function reorder(list: PageDataItem[], startIndex: number, endIndex: number): PageDataItem[] {
   const result = Array.from(list);
   const [removed] = result.splice(startIndex, 1);
   result.splice(endIndex, 0, removed);
@@ -58,9 +58,9 @@ function reorder(list: ListItemProps[], startIndex: number, endIndex: number): L
 }
 
 export function moveComponent(
-  centerData: ListItemProps[],
+  centerData: PageDataItem[],
   dragIndex: number,
   hoverIndex: number,
-): ListItemProps[] {
+): PageDataItem[] {
   return reorder(centerData, dragIndex, hoverIndex);
 }

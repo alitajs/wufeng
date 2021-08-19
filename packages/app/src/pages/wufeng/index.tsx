@@ -2,7 +2,7 @@ import React from 'react';
 import type { FC } from 'react';
 import { ConnectProps, connect } from 'alita';
 import styles from './index.less';
-import { wufeng as aa } from 'wufeng';
+import { wufengController as aa } from 'wufeng';
 import { Button } from 'antd-mobile';
 // const { components } = wufeng;
 interface PageProps extends ConnectProps {

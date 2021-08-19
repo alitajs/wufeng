@@ -1,15 +1,17 @@
 import type { FC } from 'react';
 import React from 'react';
-import { Drop, DropTargetMonitor } from '../';
-
+import { Drop, Drag, wufengController } from '../';
+import type { DropTargetMonitor } from '../';
 import './index.less';
 
 interface IDeviceProps {
-  components?: any[];
-  onDrop: (item: any, monitor: DropTargetMonitor, data: any) => void;
+  pageData?: any[];
+  onAddDrop: (item: any, monitor: DropTargetMonitor, data: any) => void;
+  onMoveDrop: (item: any, monitor: DropTargetMonitor, data: any) => void;
 }
 
-const Device: FC<IDeviceProps> = ({ components = [], onDrop }) => {
+const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop }) => {
+  const { components } = wufengController;
   return (
     <div className="wf-phone-device" data-device-type="iOS">
       <div className="wf-phone-device-status">
@@ -20,7 +22,9 @@ const Device: FC<IDeviceProps> = ({ components = [], onDrop }) => {
       </div>
       <Drop
         data={{ panel: 'phone' }}
-        onDrop={onDrop}
+        type="blocks"
+        onDrop={onAddDrop}
+        onHover={() => {}}
         onOverStyle={{
           flex: 1,
           border: '1px dashed',
@@ -32,9 +36,29 @@ const Device: FC<IDeviceProps> = ({ components = [], onDrop }) => {
         style={{
           flex: 1,
           border: 0,
+          overflowY: 'auto',
         }}
       >
-        {/* {components.map()} */}
+        {pageData.map((item) => {
+          const { name, props } = item.component;
+          const Com = components.find((i) => i.name === name);
+          if (Com && Com.class) {
+            return (
+              <Drop
+                key={item.id}
+                onHover={onMoveDrop}
+                onDrop={() => {}}
+                data={item.component}
+                type="list"
+              >
+                <Drag type="list" data={item.component}>
+                  <Com.class {...props} />
+                </Drag>
+              </Drop>
+            );
+          }
+          return null;
+        })}
         {/* <iframe title="dumi-previewer" src={url} key={renderKey} /> */}
       </Drop>
       <div className="wf-phone-device-action"></div>
