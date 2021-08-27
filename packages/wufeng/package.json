@@ -24,6 +24,7 @@
   "dependencies": {
     "@alita/react": "0.1.1",
     "@alitajs/dnd": "1.0.1",
-    "@wufeng/types": "0.0.1"
+    "@wufeng/types": "0.0.1",
+    "ahooks": "^2.10.9"
   }
 }

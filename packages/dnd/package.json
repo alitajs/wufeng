@@ -26,6 +26,7 @@
     "react": "^16.8.5"
   },
   "dependencies": {
+    "ahooks": "^2.10.9",
     "ismobilejs": "^1.0.3",
     "react-dnd": "^9.5.1",
     "react-dnd-html5-backend": "^9.5.1",

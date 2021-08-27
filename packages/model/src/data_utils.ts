@@ -1,4 +1,5 @@
 import type { ComponentProps, PageDataItem } from '@wufeng/types';
+import update from 'immutability-helper';
 
 // import { DataComponet } from "./data_componet";
 
@@ -25,17 +26,33 @@ function getAddData(item: ComponentProps): PageDataItem {
   return data;
 }
 
-export function addComponent(
-  leftData: PageDataItem[],
-  centerData: PageDataItem[],
-  item: ComponentProps,
-  index: number,
-) {
+// export function addComponent(
+//   leftData: PageDataItem[],
+//   centerData: PageDataItem[],
+//   item: ComponentProps,
+//   index: number,
+// ) {
+//   const initData = { ...getAddData(item) };
+//   centerData.splice(index, 0, initData);
+//   return { leftData, centerData };
+// }
+export function findIndexById(data: PageDataItem[], id: number | string): number {
+  let index = data.length;
+  if (id === 'max') return index;
+  for (let key = 0; key <= data.length; ) {
+    if (data[key].id === id) {
+      index = key;
+      break;
+    }
+    key += 1;
+  }
+  return index;
+}
+export function addComponent(centerData: PageDataItem[], item: ComponentProps, index: number) {
   const initData = { ...getAddData(item) };
   centerData.splice(index, 0, initData);
-  return { leftData, centerData };
+  return centerData;
 }
-
 export function deleteComponent(centerData: PageDataItem[], id: number) {
   const d = centerData;
   for (let key = d.length - 1; key >= 0; ) {

@@ -1,5 +1,5 @@
 // import { gPage } from "@/services/api";
-import { addComponent, moveComponent, deleteComponent } from './data_utils';
+import { findIndexById, addComponent, moveComponent, deleteComponent } from './data_utils';
 import type { Effect, Reducer, Subscription } from './connect';
 // TODO: test error
 // import keymaster from "keymaster";
@@ -153,9 +153,9 @@ const WuFengModel: WuFengModelType = {
           const { childrenCom } = arr;
           if (arr.id === pId) {
             const itemIndex = index === 'max' ? childrenCom.length : index;
-            const data = addComponent(sourceData, childrenCom, i, itemIndex);
+            const data = addComponent(childrenCom, i, itemIndex);
             // eslint-disable-next-line
-            arr.childrenCom = data.centerData;
+            arr.childrenCom = data;
           } else if (childrenCom && childrenCom.length > 0) {
             // eslint-disable-next-line
             arr.childrenCom = findComAndAddComponent(childrenCom, pId, i);
@@ -173,6 +173,7 @@ const WuFengModel: WuFengModelType = {
     },
     *addItem({ payload }, { call, put, select }) {
       const { parentId, item, index } = payload;
+      // TODO: addchildrenCom 的逻辑未验证
       if (parentId && parentId !== 'wufengmainroot') {
         yield put({
           type: 'addchildrenCom',
@@ -180,45 +181,57 @@ const WuFengModel: WuFengModelType = {
         });
         return;
       }
-      const { sourceData, components } = yield select((state: any) => state.wufeng);
-      const data = addComponent(
-        sourceData,
-        components,
-        item,
-        index === 'max' ? components.length : index,
-      );
+      const { components } = yield select((state: any) => state.wufeng);
+
+      const data = addComponent(components, item, index === 'max' ? components.length : index);
       yield put({
         type: 'save',
         payload: {
-          components: data.centerData,
+          components: data,
         },
       });
     },
     *moveItem({ payload }, { call, put, select }) {
-      const { dragIndex, hoverIndex, parentId } = payload;
+      const { dragIndex, hoverIndex, dragParentId, hoverParentId } = payload;
       const { components } = yield select((state: any) => state.wufeng);
-      function findComMobeItem(arrs: any[], pId: string, dIndex: number, hIndex: number) {
-        if (pId !== 'wufengmainroot') {
-          arrs.map((item) => {
-            const { childrenCom } = item;
-            if (item.id === pId) {
-              const data = moveComponent(item.childrenCom, dIndex, hIndex);
-              // eslint-disable-next-line
-              item.childrenCom = data;
-            } else if (childrenCom && childrenCom.length > 0) {
-              // eslint-disable-next-line
-              item.childrenCom = findComMobeItem(childrenCom, pId, dIndex, hIndex);
-            }
-            return item;
-          });
-          return arrs;
+      function findComMobeItem(
+        arrs: any[],
+        dpId: string,
+        hpId: string,
+        dIndex: number,
+        hIndex: number,
+      ) {
+        if (dpId === hpId) {
+          if (dpId && dpId !== 'wufengmainroot') {
+            arrs.map((item) => {
+              const { childrenCom } = item;
+              if (item.id === dpId) {
+                const data = moveComponent(item.childrenCom, dIndex, hIndex);
+                // eslint-disable-next-line
+                item.childrenCom = data;
+              } else if (childrenCom && childrenCom.length > 0) {
+                // eslint-disable-next-line
+                item.childrenCom = findComMobeItem(childrenCom, dpId, hpId, dIndex, hIndex);
+              }
+              return item;
+            });
+            return arrs;
+          }
+          return moveComponent(arrs, dragIndex, hoverIndex);
         }
-        return moveComponent(arrs, dragIndex, hoverIndex);
+        // TODO: 不同 parentId 是的移动逻辑未实现
+        return arrs;
       }
       yield put({
         type: 'save',
         payload: {
-          components: findComMobeItem(components, parentId, dragIndex, hoverIndex),
+          components: findComMobeItem(
+            components,
+            dragParentId,
+            hoverParentId,
+            dragIndex,
+            hoverIndex,
+          ),
         },
       });
     },

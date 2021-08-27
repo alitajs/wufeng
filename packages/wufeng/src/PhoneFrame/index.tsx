@@ -7,11 +7,18 @@ import './index.less';
 interface IDeviceProps {
   pageData?: any[];
   onAddDrop: (item: any, monitor: DropTargetMonitor, data: any) => void;
-  onMoveDrop: (item: any, monitor: DropTargetMonitor, data: any) => void;
+  onMoveDrop: (
+    dragIndex: number,
+    hoverIndex: number,
+    dragItem: any,
+    hoverItem: any,
+    monitor?: DropTargetMonitor,
+  ) => void;
 }
 
 const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop }) => {
   const { components } = wufengController;
+
   return (
     <div className="wf-phone-device" data-device-type="iOS">
       <div className="wf-phone-device-status">
@@ -22,7 +29,6 @@ const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop }) => {
       </div>
       <Drop
         data={{ panel: 'phone' }}
-        type="blocks"
         onDrop={onAddDrop}
         onHover={() => {}}
         onOverStyle={{
@@ -39,25 +45,37 @@ const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop }) => {
           overflowY: 'auto',
         }}
       >
-        {pageData.map((item) => {
+        {pageData.map((item, index) => {
           const { name, props } = item.component;
           const Com = components.find((i) => i.name === name);
           if (Com && Com.class) {
             return (
               <Drop
-                key={item.id}
+                key={`drop${item.id}`}
+                data={{ ...item, index }}
                 onHover={onMoveDrop}
-                onDrop={() => {}}
-                data={item.component}
-                type="list"
+                onDrop={onAddDrop}
               >
-                <Drag type="list" data={item.component}>
+                <Drag data={{ ...item, index }}>
                   <Com.class {...props} />
                 </Drag>
               </Drop>
             );
           }
-          return null;
+          return (
+            <Drop
+              key={`drop${item.id}`}
+              data={{ ...item, index }}
+              onHover={onMoveDrop}
+              onDrop={onAddDrop}
+            >
+              <Drag data={{ ...item, index }}>
+                <div style={{ height: '40px', backgroundColor: 'red', color: 'white' }}>
+                  未找到组件，请检查组件类型
+                </div>
+              </Drag>
+            </Drop>
+          );
         })}
         {/* <iframe title="dumi-previewer" src={url} key={renderKey} /> */}
       </Drop>

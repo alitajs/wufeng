@@ -11,7 +11,7 @@ const ComponentsWare: FC = () => {
         const { class: Com, ...reset } = item;
         if (Com) {
           return (
-            <Drag data={reset} type="blocks" key={item.name}>
+            <Drag data={reset} key={item.name}>
               <Com {...item.props} />
             </Drag>
           );
