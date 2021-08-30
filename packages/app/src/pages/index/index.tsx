@@ -13,7 +13,7 @@ interface IndexPageProps extends ConnectProps {
 const IndexPage: FC<IndexPageProps> = ({ wufeng, dispatch }) => {
   const { components } = wufeng;
 
-  const onAddDrop = (item: any, monitor: DropTargetMonitor, data: any) => {
+  const onAddDrop = (item: any = {}, monitor: DropTargetMonitor, data: any = {}) => {
     // component 存在就不做任何事情，表示的是，拖动了已有项放到容器中，不做添加操作
     if (item.component) return;
     // 这里会有两种放置状态，一种是放到最外层容器中，为从尾部加入；另一种为防到已有项上面，为插入操作
@@ -26,16 +26,23 @@ const IndexPage: FC<IndexPageProps> = ({ wufeng, dispatch }) => {
     }
   };
 
-  const onMoveDrop = (dragIndex: number, hoverIndex: number, dragItem: any, hoverItem: any) => {
-    dispatch?.({
+  const onMoveDrop = async (
+    dragIndex: number,
+    hoverIndex: number,
+    dragItem: any,
+    hoverItem: any,
+  ) => {
+    const data = await dispatch?.({
       type: 'wufeng/moveItem',
       payload: {
         dragIndex,
         hoverIndex,
-        dragParentId: dragItem.parentId,
-        hoverParentId: hoverItem.parentId,
+        dragItem,
+        hoverItem,
+        components,
       },
     });
+    return data;
   };
   return (
     <WFPage
