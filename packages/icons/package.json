@@ -14,9 +14,13 @@
     "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
   ],
   "scripts": {
-    "build": "father-build"
+    "build": "yarn run generate:main && father-build",
+    "generate:main": "node scripts/g"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "peerDependencies": {
+    "react": ">=16.8.6"
+  }
 }
