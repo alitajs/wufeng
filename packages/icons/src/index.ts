@@ -1,1 +1,7 @@
-// https://cdn.jsdelivr.net/gh/ionic-team/ionic-docs@latest/static/icons/component-alert-icon.png
+/* eslint-disable */
+/* tslint:disable */
+import { createReactComponent } from './createReactComponent';
+
+export const Alert = /*@__PURE__*/ createReactComponent<HTMLImageElement, HTMLImageElement>(
+  'alert',
+);
