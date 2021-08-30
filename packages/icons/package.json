@@ -19,5 +19,8 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "peerDependencies": {
+    "react": ">=16.8.6"
+  }
 }
