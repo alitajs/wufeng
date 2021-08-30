@@ -192,32 +192,43 @@ const WuFengModel: WuFengModelType = {
       });
     },
     *moveItem({ payload }, { call, put, select }) {
-      const { dragIndex, hoverIndex, dragParentId, hoverParentId } = payload;
-      const { components } = yield select((state: any) => state.wufeng);
+      const { dragIndex, hoverIndex, dragItem, hoverItem, components } = payload;
+      const dragParentId = dragItem.parentId;
+      const hoverParentId = hoverItem.parentId;
       function findComMobeItem(
         arrs: any[],
         dpId: string,
         hpId: string,
         dIndex: number,
         hIndex: number,
+        drag: any,
+        hover: any,
       ) {
         if (dpId === hpId) {
           if (dpId && dpId !== 'wufengmainroot') {
             arrs.map((item) => {
               const { childrenCom } = item;
               if (item.id === dpId) {
-                const data = moveComponent(item.childrenCom, dIndex, hIndex);
+                const data = moveComponent(item.childrenCom, dIndex, hIndex, drag, hover);
                 // eslint-disable-next-line
                 item.childrenCom = data;
               } else if (childrenCom && childrenCom.length > 0) {
                 // eslint-disable-next-line
-                item.childrenCom = findComMobeItem(childrenCom, dpId, hpId, dIndex, hIndex);
+                item.childrenCom = findComMobeItem(
+                  childrenCom,
+                  dpId,
+                  hpId,
+                  dIndex,
+                  hIndex,
+                  drag,
+                  hover,
+                );
               }
               return item;
             });
             return arrs;
           }
-          return moveComponent(arrs, dragIndex, hoverIndex);
+          return moveComponent(arrs, dragIndex, hoverIndex, drag, hover);
         }
         // TODO: 不同 parentId 是的移动逻辑未实现
         return arrs;
@@ -231,9 +242,12 @@ const WuFengModel: WuFengModelType = {
             hoverParentId,
             dragIndex,
             hoverIndex,
+            dragItem,
+            hoverItem,
           ),
         },
       });
+      return { isMove: false };
     },
     *showItem({ payload }, { put }) {
       const data = { ...payload };

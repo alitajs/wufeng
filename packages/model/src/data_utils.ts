@@ -78,6 +78,16 @@ export function moveComponent(
   centerData: PageDataItem[],
   dragIndex: number,
   hoverIndex: number,
+  drag: any,
+  hover: any,
 ): PageDataItem[] {
-  return reorder(centerData, dragIndex, hoverIndex);
+  if (!centerData) return [];
+  if (centerData[dragIndex].id !== drag.id) return centerData;
+  if (centerData[hoverIndex].id !== hover.id) return centerData;
+  return update(centerData, {
+    $splice: [
+      [dragIndex, 1],
+      [hoverIndex, 0, drag],
+    ],
+  });
 }
