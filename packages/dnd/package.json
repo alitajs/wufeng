@@ -7,6 +7,7 @@
   "unpkg": "./dist/index.umd.js",
   "scripts": {
     "build": "father-build",
+    "watch":"father-build -w",
     "publish": "npm publish --access public"
   },
   "repository": {

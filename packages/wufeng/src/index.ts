@@ -8,6 +8,7 @@ export { default as WFPage } from './Page';
 export { default as WFComponentsWare } from './ComponentsWare';
 export { default as WFPhoneFrame } from './PhoneFrame';
 export { default as DataSource } from './DataSource';
+export { default as EditorStyle } from './EditorStyle';
 
 export * from './utils';
 export * from '@alitajs/dnd';

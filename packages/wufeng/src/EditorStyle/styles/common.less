@@ -1,0 +1,426 @@
+@import 'custom';
+
+@editor: editor-list;
+
+.@{editor},
+.@{editor}-popover .ant-popover-inner {
+  font-size: 12px;
+  line-height: 22px;
+
+  .icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 22px;
+    font-size: 16px;
+  }
+
+  .ant-tag {
+    cursor: pointer;
+  }
+
+  &-dropdown {
+    font-size: 12px;
+
+    .ant-dropdown-menu-item {
+      font-size: 12px;
+    }
+  }
+
+  .ant-radio-group-small .ant-radio-button-wrapper {
+    padding: 0 8px;
+  }
+
+  .ant-row {
+    margin-bottom: 8px;
+  }
+
+  .ant-collapse-content-box {
+    position: relative;
+  }
+
+  .ant-input-number,
+  .ant-input {
+    width: 100%;
+    color: @text-color;
+    background: @bgColor;
+    border-color: @input-line-color;
+    [data-prefers-color='dark'] & {
+      color: @text-color-dark;
+      background: @bgColor-dark;
+      border-color: @input-line-color-dark;
+    }
+    &.ant-input-disabled {
+      color: fade(@text-color, 10);
+      border-color: fade(@input-line-color, 10);
+      [data-prefers-color='dark'] & {
+        color: fade(@text-color-dark, 10);
+        border-color: fade(@input-line-color-dark, 10);
+      }
+    }
+
+    input {
+      color: @text-color;
+      background: @bgColor !important;
+      border-color: @input-line-color;
+      [data-prefers-color='dark'] & {
+        color: @text-color-dark;
+        background: @bgColor-dark !important;
+        border-color: @input-line-color-dark;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &-focused {
+      border-color: @input-line-color-hover;
+      box-shadow: 0 0 4px @input-line-color-hover;
+      [data-prefers-color='dark'] & {
+        border-color: @input-line-color-hover-dark;
+        box-shadow: 0 0 4px @input-line-color-hover-dark;
+      }
+    }
+
+    &::-moz-placeholder {
+      color: fade(@text-color, 15);
+      opacity: 1;
+      [data-prefers-color='dark'] & {
+        color: fade(@text-color-dark, 15);
+      }
+    }
+
+    &:-ms-input-placeholder {
+      color: fade(@text-color, 15);
+      [data-prefers-color='dark'] & {
+        color: fade(@text-color-dark, 15);
+      }
+    }
+
+    &::-webkit-input-placeholder {
+      color: fade(@text-color, 15);
+      [data-prefers-color='dark'] & {
+        color: fade(@text-color-dark, 15);
+      }
+    }
+  }
+
+  .ant-input-group {
+    &-addon {
+      padding: 0 4px;
+      color: @text-color;
+      background-color: @bgColor;
+      border-color: @text-color;
+      [data-prefers-color='dark'] & {
+        color: @text-color-dark;
+        background-color: @bgColor-dark;
+        border-color: @text-color-dark;
+      }
+    }
+  }
+  .ant-select-single:not(.ant-select-customize-input) .ant-select-selector,
+  .ant-select,
+  .ant-select-selection,
+  .ant-select-auto-complete.ant-select {
+    color: @text-color;
+    background: @bgColor;
+    border-color: @input-line-color;
+    [data-prefers-color='dark'] & {
+      color: @text-color-dark;
+      background: @bgColor-dark;
+      border-color: @input-line-color-dark;
+    }
+    &:hover,
+    &:focus {
+      border-color: @input-line-color-hover;
+      [data-prefers-color='dark'] & {
+        border-color: @input-line-color-hover-dark;
+      }
+    }
+
+    .ant-select-selection-selected-value {
+      padding-right: 8px;
+    }
+
+    .ant-select-arrow {
+      right: 4px;
+      color: @text-color;
+      [data-prefers-color='dark'] & {
+        color: @text-color-dark;
+      }
+    }
+
+    input {
+      padding: 0 7px;
+      &:hover,
+      &:focus,
+      &-focused {
+        border-color: @input-line-color-hover;
+        box-shadow: none;
+        [data-prefers-color='dark'] & {
+          border-color: @input-line-color-hover-dark;
+        }
+      }
+    }
+  }
+
+  .ant-select-single .ant-select-selector {
+    padding: 0;
+    .ant-select-selection-search {
+      right: 0;
+      left: 0;
+    }
+  }
+
+  .ant-select-focused .ant-select-selection,
+  .ant-select-open .ant-select-selection {
+    border-color: @input-line-color-hover;
+    box-shadow: 0 0 4px @input-line-color-hover;
+    [data-prefers-color='dark'] & {
+      border-color: @input-line-color-hover-dark;
+      box-shadow: 0 0 4px @input-line-color-hover-dark;
+    }
+  }
+
+  .ant-select-selection {
+    .ant-select-selection__placeholder {
+      width: 100%;
+      margin-right: 0;
+      margin-left: 0;
+      padding: 1px 7px;
+      color: fade(@text-color, 15);
+      [data-prefers-color='dark'] & {
+        color: fade(@text-color-dark, 15);
+      }
+    }
+  }
+
+  .ant-input-number-handler-wrap {
+    background: transparent;
+
+    .ant-input-number-handler {
+      .ant-input-number-handler-up-inner,
+      .ant-input-number-handler-down-inner {
+        color: @text-color;
+        [data-prefers-color='dark'] & {
+          color: @text-color-dark;
+        }
+        &:hover {
+          color: @text-color;
+          [data-prefers-color='dark'] & {
+            color: @text-color-dark;
+          }
+        }
+      }
+    }
+  }
+
+  .ant-radio-button-wrapper {
+    width: 42px;
+    color: @text-color;
+    text-align: center;
+    background: transparent;
+    border-color: @input-line-color;
+    [data-prefers-color='dark'] & {
+      color: @text-color-dark;
+      border-color: @input-line-color-dark;
+    }
+  }
+
+  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):first-child,
+  .ant-radio-button-wrapper-checked:not(.ant-radio-button-wrapper-disabled):hover,
+  .ant-radio-button-wrapper-checked {
+    color: @text-color-hover;
+    background: @heiColor;
+    border-color: @input-line-color-hover;
+    box-shadow: -1px 0 0 0 @input-line-color-hover;
+    [data-prefers-color='dark'] & {
+      color: @text-color-hover-dark;
+      background: @heiColor-dark;
+      border-color: @input-line-color-hover-dark;
+      box-shadow: -1px 0 0 0 @input-line-color-hover-dark;
+    }
+  }
+
+  .ant-radio-button-wrapper:not(:first-child)::before {
+    background-color: fade(@input-line-color, 30);
+    [data-prefers-color='dark'] & {
+      background-color: fade(@input-line-color-dark, 30);
+    }
+  }
+
+  .ant-radio-button-auto-width {
+    width: auto;
+  }
+
+  .select-input {
+    position: relative;
+    & .anticon {
+      position: absolute;
+      right: 4px;
+      z-index: 2;
+      font-size: 12px;
+      line-height: 22px;
+      transform: scale(0.75) rotate(0deg);
+      cursor: pointer;
+    }
+  }
+
+  .ant-switch-checked {
+    background-color: @input-line-color;
+    [data-prefers-color='dark'] & {
+      background-color: @input-line-color-dark;
+    }
+  }
+
+  .add-button {
+    display: block;
+    width: 100%;
+    height: 36px;
+    color: @text-color;
+    font-size: 24px;
+    line-height: 36px;
+    text-align: center;
+    background: @heiColor;
+    border-radius: 4px;
+    box-shadow: 0 0 0 fade(#000, 0);
+    transition: transform 0.3s @ease-out, box-shadow 0.3s @ease-out, color 0.3s @ease-out,
+      background 0.3s @ease-out;
+    [data-prefers-color='dark'] & {
+      color: @text-color-dark;
+      background: @heiColor-dark;
+    }
+    &:hover {
+      color: @text-color-hover;
+      background: @huiColor;
+      box-shadow: 0 2px 3px fade(#000, 35);
+      transform: translateY(-2px) scale(1.01);
+      [data-prefers-color='dark'] & {
+        color: @text-color-dark;
+        background: @heiColor-dark;
+      }
+    }
+
+    &:active {
+      box-shadow: 0 1px 3px fade(#000, 35);
+      transform: translateY(-1px) scale(1.005);
+    }
+  }
+
+  .icon-button {
+    display: block;
+    cursor: pointer;
+  }
+
+  .editor-transition-tween {
+    .ant-row {
+      overflow: hidden;
+    }
+  }
+
+  .ant-tag-checkable {
+    margin-bottom: 8px;
+    color: @text-color;
+    border: 1px solid @input-line-color;
+    [data-prefers-color='dark'] & {
+      color: @text-color-dark;
+      border: 1px solid @input-line-color-dark;
+    }
+    &:hover {
+      color: @text-color;
+      [data-prefers-color='dark'] & {
+        color: @text-color-dark;
+      }
+    }
+
+    &:active,
+    &.ant-tag-checkable-checked {
+      color: @text-color-hover;
+      background: @heiColor;
+      border-color: @input-line-color-hover;
+      [data-prefers-color='dark'] & {
+        color: @text-color-hover-dark;
+        background: @heiColor-dark;
+        border-color: @input-line-color-hover-dark;
+      }
+    }
+  }
+
+  .ant-popover-inner-content {
+    padding: 0;
+    color: @text-color;
+    [data-prefers-color='dark'] & {
+      color: @text-color-dark;
+    }
+  }
+
+  .sketch-picker {
+    color: @bgColor;
+    box-shadow: none !important;
+    [data-prefers-color='dark'] & {
+      color: @bgColor-dark;
+    }
+    input {
+      color: @bgColor;
+      [data-prefers-color='dark'] & {
+        color: @bgColor-dark;
+      }
+    }
+  }
+
+  .ant-checkbox {
+    color: @text-color;
+    [data-prefers-color='dark'] & {
+      color: @text-color-dark;
+    }
+    & + span {
+      color: @text-color;
+      [data-prefers-color='dark'] & {
+        color: @text-color-dark;
+      }
+    }
+
+    &-wrapper:hover {
+      .ant-checkbox-inner {
+        border-color: @text-color;
+        [data-prefers-color='dark'] & {
+          border-color: @text-color-dark;
+        }
+      }
+    }
+
+    &-checked {
+      .ant-checkbox-inner {
+        background-color: @heiColor;
+        border-color: @text-color;
+        [data-prefers-color='dark'] & {
+          background-color: @heiColor-dark;
+          border-color: @text-color-dark;
+        }
+      }
+    }
+  }
+}
+
+.@{editor}-popover .ant-popover-content {
+  .ant-popover-inner {
+    position: relative;
+    z-index: 1;
+    background-color: @huiColor;
+    box-shadow: 0 0 16px fade(@huiColor, 70);
+    [data-prefers-color='dark'] & {
+      background-color: @huiColor-dark;
+      box-shadow: 0 0 16px fade(@huiColor-dark, 70);
+    }
+  }
+
+  .ant-popover-arrow {
+    border-right-color: @huiColor;
+    border-bottom-color: @huiColor;
+    box-shadow: 0 0 16px fade(@huiColor, 70);
+    [data-prefers-color='dark'] & {
+      border-right-color: @huiColor-dark;
+      border-bottom-color: @huiColor-dark;
+      box-shadow: 0 0 16px fade(@huiColor-dark, 70);
+    }
+  }
+}

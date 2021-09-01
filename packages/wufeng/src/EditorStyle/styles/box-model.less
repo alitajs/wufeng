@@ -1,0 +1,92 @@
+@import 'custom';
+
+.editor-list {
+  .box-model-wrapper {
+    width: ~'calc(100% - 76px)';
+    height: 60px;
+    margin: 20px auto;
+    border: 1px solid @text-color;
+    [data-prefers-color='dark'] & {
+      border: 1px solid @text-color-dark;
+    }
+  }
+
+  .box-model {
+    position: relative;
+    height: 100%;
+    .top,
+    .right,
+    .bottom,
+    .left,
+    .center,
+    .top-left,
+    .top-right,
+    .bottom-right,
+    .bottom-left {
+      position: absolute;
+      width: 76px;
+      height: 22px;
+      margin: auto;
+      .ant-select-selection {
+        background: @bgColor;
+        [data-prefers-color='dark'] & {
+          background: @bgColor-dark;
+        }
+      }
+      .ant-input,
+      .ant-select-selection__placeholder {
+        text-align: center;
+      }
+    }
+    .top {
+      top: -11px;
+      right: 0;
+      left: 0;
+      .editor-color-picker {
+        left: -85px;
+      }
+    }
+    .right {
+      top: 0;
+      right: -38px;
+      bottom: 0;
+      .editor-color-picker {
+        right: -13px;
+        left: auto;
+      }
+    }
+    .bottom {
+      right: 0;
+      bottom: -11px;
+      left: 0;
+    }
+    .left {
+      top: 0;
+      bottom: 0;
+      left: -38px;
+    }
+    .center {
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+    }
+
+    .top-left {
+      top: -11px;
+      left: -38px;
+    }
+    .top-right {
+      top: -11px;
+      right: -38px;
+    }
+    .bottom-left {
+      bottom: -11px;
+      left: -38px;
+    }
+    .bottom-right {
+      right: -38px;
+      bottom: -11px;
+    }
+  }
+}

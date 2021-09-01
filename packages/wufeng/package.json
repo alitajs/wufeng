@@ -14,7 +14,8 @@
     "xiaohuoni <448627663@qq.com> (https://github.com/xiaohuoni)"
   ],
   "scripts": {
-    "build": "father-build"
+    "build": "father-build",
+    "watch": "father-build -w"
   },
   "keywords": [],
   "license": "ISC",
@@ -24,7 +25,10 @@
   "dependencies": {
     "@alita/react": "0.1.1",
     "@alitajs/dnd": "1.0.1",
+    "@ant-design/icons": "^4.6.4",
     "@wufeng/types": "0.0.1",
-    "ahooks": "^2.10.9"
+    "ahooks": "^2.10.9",
+    "antd": "^4.16.13",
+    "rc-editor-list": "^2.0.1"
   }
 }

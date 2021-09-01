@@ -1,6 +1,7 @@
 import React from 'react';
 import type { FC } from 'react';
-import { ConnectProps, connect } from 'alita';
+import type { ConnectProps } from 'alita';
+import { connect } from 'alita';
 import styles from './index.less';
 import { wufengController as aa } from 'wufeng';
 import { Button } from 'antd-mobile';

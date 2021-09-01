@@ -82,12 +82,19 @@ export function moveComponent(
   hover: any,
 ): PageDataItem[] {
   if (!centerData) return [];
-  if (centerData[dragIndex].id !== drag.id) return centerData;
-  if (centerData[hoverIndex].id !== hover.id) return centerData;
-  return update(centerData, {
-    $splice: [
-      [dragIndex, 1],
-      [hoverIndex, 0, drag],
-    ],
-  });
+  if (centerData[dragIndex]?.id !== drag?.id) return centerData;
+  if (centerData[hoverIndex]?.id !== hover?.id) return centerData;
+  const tmp = centerData[dragIndex];
+  // eslint-disable-next-line
+  centerData[dragIndex] = centerData[hoverIndex];
+  // eslint-disable-next-line
+  centerData[hoverIndex] = tmp;
+
+  return centerData;
+  // return update(centerData, {
+  //   $splice: [
+  //     [dragIndex, 1],
+  //     [hoverIndex, 0, drag],
+  //   ],
+  // });
 }
