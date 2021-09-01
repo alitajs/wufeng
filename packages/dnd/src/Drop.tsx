@@ -1,6 +1,7 @@
 import React, { useRef } from 'react';
 import type { FC } from 'react';
-import { useDrop, DragObjectWithType, DropTargetMonitor } from 'react-dnd';
+import type { DragObjectWithType, DropTargetMonitor } from 'react-dnd';
+import { useDrop } from 'react-dnd';
 import { useDebounceFn } from 'ahooks';
 
 interface DragDataObject extends DragObjectWithType {

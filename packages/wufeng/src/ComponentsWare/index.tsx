@@ -1,6 +1,7 @@
 import React from 'react';
 import type { FC } from 'react';
-import { wufengController, Component } from '../';
+import type { Component } from '../';
+import { wufengController } from '../';
 import { Drag } from '@alitajs/dnd';
 
 const ComponentsWare: FC = () => {

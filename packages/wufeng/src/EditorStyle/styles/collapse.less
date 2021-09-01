@@ -1,0 +1,61 @@
+@import 'custom';
+@prefixCls: ant-collapse;
+.@{prefixCls}.editor-list {
+  background-color: @bgColor;
+  border-radius: 0;
+  [data-prefers-color='dark'] & {
+    background-color: @bgColor-dark;
+  }
+  > .@{prefixCls}-item {
+    border-top: 1px solid @heiColor;
+    border-bottom: none;
+    [data-prefers-color='dark'] & {
+      border-top: 1px solid @heiColor-dark;
+    }
+    &:first-child {
+      border-top: none;
+    }
+    > .@{prefixCls}-header {
+      position: relative;
+      color: @text-color;
+      font-weight: normal;
+      border-bottom: 1px solid transparent;
+      cursor: pointer;
+      transition: border 0.3s @ease-in-out;
+      [data-prefers-color='dark'] & {
+        color: @text-color-dark;
+      }
+    }
+  }
+  > .@{prefixCls}-item-disabled > .@{prefixCls}-header {
+    color: #999;
+    background-color: #f3f3f3;
+    cursor: not-allowed;
+  }
+  .@{prefixCls}-content {
+    padding: 1px 16px;
+    // overflow: hidden;
+    color: @text-color;
+    background-color: @bgColor;
+    [data-prefers-color='dark'] & {
+      color: @text-color-dark;
+      background-color: @bgColor-dark;
+    }
+    > .@{prefixCls}-content-box {
+      margin-top: 16px;
+      margin-bottom: 16px;
+      padding: 0;
+    }
+    &-inactive {
+      display: none;
+    }
+  }
+  > .@{prefixCls}-item-active {
+    > .@{prefixCls}-header {
+      border-bottom-color: @heiColor;
+      [data-prefers-color='dark'] & {
+        background-color: @bgColor-dark;
+      }
+    }
+  }
+}

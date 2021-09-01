@@ -1,0 +1,60 @@
+@import 'custom';
+
+@font: editor-font;
+
+.@{font} {
+  &-align {
+    .left,
+    .center,
+    .right,
+    .justify {
+      width: 16px;
+      margin: auto;
+      &::after,
+      &::before {
+        display: block;
+        height: 1px;
+        margin: auto;
+        background: @text-color;
+        box-shadow: 0 6px 0 @text-color;
+        content: '';
+        [data-prefers-color='dark'] & {
+          background: @text-color-dark;
+          box-shadow: 0 6px 0 @text-color-dark;
+        }
+        &::before {
+          margin-top: 5px;
+        }
+        &::after {
+          margin-top: 2px;
+        }
+      }
+    }
+    .left,
+    .center,
+    .right {
+      &::after {
+        width: 12px;
+      }
+      &::before {
+        width: 16px;
+      }
+    }
+    .left {
+      &::after {
+        margin-left: 0;
+      }
+    }
+    .right {
+      &::after {
+        margin-right: 0;
+      }
+    }
+    .justify {
+      &::after,
+      &::before {
+        width: 16px;
+      }
+    }
+  }
+}

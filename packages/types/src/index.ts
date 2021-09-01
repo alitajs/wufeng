@@ -1,10 +1,8 @@
 export type JSONValue = string | number | boolean | JSONObject | JSONArray;
 
-export interface JSONObject {
-  [x: string]: JSONValue;
-}
+export type JSONObject = Record<string, JSONValue>;
 
-export interface JSONArray extends Array<JSONValue> {}
+export type JSONArray = JSONValue[];
 
 export interface Input {
   name: string;
@@ -36,7 +34,7 @@ export interface Input {
    * to bubble up important inputs for locked groups, like text and images
    */
   bubble?: boolean;
-  options?: { [key: string]: any };
+  options?: Record<string, any>;
   enum?: string[] | { label: string; value: any; helperText?: string }[];
   /** Regex field validation for all string types (text, longText, html, url, etc) */
   regex?: {
@@ -82,25 +80,13 @@ export interface WuFengElement {
     options?: any;
     tag?: string;
   };
-  bindings?: {
-    [key: string]: string;
-  };
-  meta?: {
-    [key: string]: JSONValue;
-  };
-  actions?: {
-    [key: string]: string;
-  };
-  properties?: {
-    [key: string]: string;
-  };
+  bindings?: Record<string, string>;
+  meta?: Record<string, JSONValue>;
+  actions?: Record<string, string>;
+  properties?: Record<string, string>;
   code?: {
-    bindings?: {
-      [key: string]: string;
-    };
-    actions?: {
-      [key: string]: string;
-    };
+    bindings?: Record<string, string>;
+    actions?: Record<string, string>;
   };
   repeat?: {
     collection: string;
@@ -128,7 +114,7 @@ export interface Component {
    */
   inputs?: Input[];
   class?: any;
-  defaultStyles?: { [key: string]: string };
+  defaultStyles?: Record<string, string>;
   /**
    * Turn on if your component can accept children. Be sure to use in combination with
    * withChildren(YourComponent) like here
@@ -146,7 +132,7 @@ export interface Component {
    */
   defaultChildren?: WuFengElement[];
   defaults?: Partial<WuFengElement>;
-  hooks?: { [key: string]: string | Function };
+  hooks?: Record<string, string | Function>;
   /**
    * Hide your component in editor, useful for gradually deprecating components
    */
