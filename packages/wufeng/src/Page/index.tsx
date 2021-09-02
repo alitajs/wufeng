@@ -14,14 +14,14 @@ export interface WFPageProps {
 const PageLayout: FC<WFPageProps> = ({ ComponentFrame, DisplayFrame, RateFrame }) => {
   return (
     <Grid className={classPrefix} columns={5}>
-      <GridItem span={1}>
+      <GridItem span={2}>
         <Page>
           <Content>
             <ComponentFrame />
           </Content>
         </Page>
       </GridItem>
-      <GridItem span={3}>
+      <GridItem span={2}>
         <Page>
           <Content>
             <DisplayFrame />
