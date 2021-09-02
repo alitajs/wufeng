@@ -1,0 +1,80 @@
+@import 'custom';
+
+@bgImage: editor-bg-image;
+
+.@{bgImage} {
+  &-wrapper {
+    padding-top: 8px;
+    border-top: 1px solid @heiColor;
+    [data-prefers-color='dark'] & {
+      border-top: 1px solid @heiColor-dark;
+    }
+    .add-button {
+      font-size: 14px;
+    }
+  }
+
+  &-list {
+    display: grid;
+    grid-template-rows: 32px;
+    grid-template-columns: 24px 24px auto 24px;
+    gap: 0 4px;
+    align-items: center;
+    height: 32px;
+    line-height: 32px;
+    transition: background 0.3s @ease-in-out;
+
+    &-preview {
+      grid-column-start: 2;
+      width: 24px;
+      height: 24px;
+      background-position: center;
+      background-size: cover;
+      background-clip: content-box;
+      border: 1px solid fade(#fff, 15);
+    }
+
+    &-bar {
+      grid-column-start: 1;
+      text-align: center;
+      outline: none;
+    }
+
+    &-name {
+      grid-column-start: 3;
+      overflow: hidden;
+      color: rgba(255, 255, 255, 0.55);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      user-select: none;
+      &:hover {
+        color: rgba(255, 255, 255, 0.85);
+      }
+    }
+
+    &-delete {
+      grid-column-start: 4;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    &:hover,
+    &:active {
+      background-color: fade(@heiColor, 70);
+      [data-prefers-color='dark'] & {
+        background-color: fade(@heiColor-dark, 70);
+      }
+    }
+  }
+  &-pop {
+    width: 248px;
+    padding: 16px;
+    &-type {
+      padding-bottom: 8px;
+      border-bottom: 1px solid @bgColor;
+      [data-prefers-color='dark'] & {
+        border-bottom: 1px solid @bgColor-dark;
+      }
+    }
+  }
+}

@@ -1,0 +1,67 @@
+@import 'custom';
+@gradient: editor-gradient;
+
+.@{gradient} {
+  margin-bottom: 8px;
+  padding-bottom: 1px;
+  border-bottom: 1px solid @bgColor;
+  [data-prefers-color='dark'] & {
+    border-bottom: 1px solid @bgColor-dark;
+  }
+  &-bar {
+    position: relative;
+    height: 16px;
+    margin: 16px 0;
+    background-repeat: no-repeat;
+    border: 1px solid @bgColor;
+    cursor: crosshair;
+    [data-prefers-color='dark'] & {
+      border: 1px solid @bgColor-dark;
+    }
+    &-item {
+      position: relative;
+      height: 100%;
+      margin-right: 8px;
+    }
+  }
+
+  &-point {
+    position: absolute;
+    width: 8px;
+    height: 100%;
+    background: #eee;
+    border-radius: 2px;
+    box-shadow: @bgColor 0 0 0 1px;
+    cursor: ew-resize;
+    transition: shadow 0.3s;
+    [data-prefers-color='dark'] & {
+      box-shadow: @bgColor-dark 0 0 0 1px;
+    }
+    &.active {
+      box-shadow: @text-color-hover 0 0 0 2px, @bgColor 0 0 0 3px, @bgColor 0 0 0 1px inset;
+      [data-prefers-color='dark'] & {
+        box-shadow: @text-color-hover-dark 0 0 0 2px, @bgColor-dark 0 0 0 3px,
+          @bgColor-dark 0 0 0 1px inset;
+      }
+    }
+  }
+
+  &-repeat {
+    color: @text-color;
+    [data-prefers-color='dark'] & {
+      color: @text-color-dark;
+    }
+    .ant-checkbox + span {
+      color: @text-color;
+      [data-prefers-color='dark'] & {
+        color: @text-color-dark;
+      }
+    }
+  }
+
+  &-color {
+    .ant-row {
+      margin-bottom: 0 !important;
+    }
+  }
+}

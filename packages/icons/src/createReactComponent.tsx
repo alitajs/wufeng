@@ -73,7 +73,11 @@ export const createReactComponent = <
         ...cProps,
         src: imagesObj[imgName],
         ref: mergeRefs(forwardedRef, this.setComponentElRef),
-        style,
+        style: {
+          width: '48px',
+          height: '48px',
+          ...style,
+        },
       };
 
       return React.createElement('img', newProps, children);

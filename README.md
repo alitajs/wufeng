@@ -7,6 +7,27 @@
 
 是的，这是一个没有规划的项目，从新建项目开始，慢慢挖坑，慢慢填坑。最终它可能是一个低代码平台，也可能是一个低代码技术栈的参考。
 
+## 工作流程
+
+1、 yarn
+2、 yarn build
+3、 cd packages/wufeng && yarn run watch （如果有同时修改其他的库，也需要另起watch服务）
+4、 yarn start:app
+
+## 主题
+
+延用 dumi 的方案，通过 `document.documentElement.setAttribute('data-prefers-color', 'dark');` 开启暗黑风格
+
+在样式中使用 `data-prefers-color='dark'` 判断是暗黑模式。
+
+如： packages/wufeng/src/EditorStyle/styles/box-model.less#L9
+
+```css
+    [data-prefers-color='dark'] & {
+      border: 1px solid @text-color-dark;
+    }
+```
+
 ## 备注
 
 以下是我对一些包的构想，只是第一期个人脑爆的纪录。

@@ -1,17 +1,20 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, Fragment, useState } from 'react';
 import type { FC } from 'react';
 import { connect, IRouteComponentProps } from 'alita';
 import type { ConnectProps } from 'alita';
-import { WFPage, WFComponentsWare, WFPhoneFrame } from 'wufeng';
+import { WFPage, WFComponentsWare, WFPhoneFrame, EditorStyle } from 'wufeng';
 import type { DropTargetMonitor } from 'wufeng';
 import type { WuFengModelState } from 'wufeng-model';
 
-const RateFrame: FC = () => <div>3</div>;
+const RateFrame: FC = ({ selectItem }) => (
+  <EditorStyle selectDom={selectItem} onChange={(a) => console.log(a)} />
+);
 interface IndexPageProps extends ConnectProps {
   wufeng: WuFengModelState;
 }
 const IndexPage: FC<IndexPageProps> = ({ wufeng, dispatch }) => {
   const { components } = wufeng;
+  const [selectItem, setSelectItem] = useState();
 
   const onAddDrop = (item: any = {}, monitor: DropTargetMonitor, data: any = {}) => {
     // component 存在就不做任何事情，表示的是，拖动了已有项放到容器中，不做添加操作
@@ -44,14 +47,25 @@ const IndexPage: FC<IndexPageProps> = ({ wufeng, dispatch }) => {
     });
     return data;
   };
+  const onClick = (e) => {
+    setSelectItem(e.target);
+  };
+
   return (
-    <WFPage
-      ComponentFrame={WFComponentsWare}
-      DisplayFrame={() => (
-        <WFPhoneFrame onAddDrop={onAddDrop} onMoveDrop={onMoveDrop} pageData={components} />
-      )}
-      RateFrame={RateFrame}
-    />
+    <Fragment>
+      <WFPage
+        ComponentFrame={WFComponentsWare}
+        DisplayFrame={() => (
+          <WFPhoneFrame
+            onAddDrop={onAddDrop}
+            onMoveDrop={onMoveDrop}
+            pageData={components}
+            onClick={onClick}
+          />
+        )}
+        RateFrame={() => <RateFrame selectItem={selectItem} />}
+      />
+    </Fragment>
   );
 };
 

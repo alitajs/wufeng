@@ -1,5 +1,7 @@
-import React, { FC, useState } from 'react';
-import { Drag, Drop, DndProvider, DataUtils, DropTargetMonitor } from './index';
+import type { FC } from 'react';
+import React, { useState } from 'react';
+import type { DropTargetMonitor } from './index';
+import { Drag, Drop, DndProvider, DataUtils } from './index';
 
 interface PageProps {}
 

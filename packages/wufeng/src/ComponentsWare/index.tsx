@@ -1,7 +1,8 @@
 import React from 'react';
 import type { FC } from 'react';
 import { Page, Content, Grid, GridItem } from '@alita/react';
-import { wufengController, Component } from '../';
+import { wufengController } from '../';
+import type { Component } from '../';
 import { Drag } from '@alitajs/dnd';
 
 const ComponentsWare: FC = () => {

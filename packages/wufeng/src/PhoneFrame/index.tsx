@@ -14,9 +14,10 @@ interface IDeviceProps {
     hoverItem: any,
     monitor?: DropTargetMonitor,
   ) => void;
+  onClick?: (event: MouseEvent) => void;
 }
 
-const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop }) => {
+const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop, onClick }) => {
   const { components } = wufengController;
 
   return (
@@ -57,7 +58,7 @@ const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop }) => {
                 onDrop={onAddDrop}
               >
                 <Drag data={{ ...item, index }}>
-                  <Com.class {...props} />
+                  <Com.class {...props} onClick={onClick} />
                 </Drag>
               </Drop>
             );
