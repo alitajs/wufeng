@@ -30,7 +30,7 @@ const PageLayout: FC<WFPageProps> = ({ ComponentFrame, DisplayFrame, RateFrame }
       </GridItem>
       <GridItem span={1}>
         <Page>
-          <Content>
+          <Content style={{ backgroundColor: '#fafafa' }}>
             <RateFrame />
           </Content>
         </Page>
