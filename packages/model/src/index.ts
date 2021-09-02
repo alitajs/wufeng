@@ -1,5 +1,5 @@
 // import { gPage } from "@/services/api";
-import { findIndexById, addComponent, moveComponent, deleteComponent } from './data_utils';
+import { findItem, addComponent, moveComponent, deleteComponent } from './data_utils';
 import type { Effect, Reducer, Subscription } from './connect';
 // TODO: test error
 // import keymaster from "keymaster";
@@ -15,13 +15,8 @@ export interface WuFengModelType {
   state: WuFengModelState;
   effects: {
     initSourceData: Effect;
-    keyDeleteItem: Effect;
-    delItem: Effect;
-    addchildrenCom: Effect;
     addItem: Effect;
-    keyMoveItem: Effect;
     moveItem: Effect;
-    showItem: Effect;
     changeItemProp: Effect;
     downloadCode: Effect;
   };
@@ -80,97 +75,6 @@ const WuFengModel: WuFengModelType = {
         },
       });
     },
-    *keyDeleteItem({ payload }, { call, put, select }) {
-      const { showItemData } = yield select((state: any) => state.wufeng);
-      if (showItemData && showItemData.id) {
-        yield put({
-          type: 'delItem',
-          payload: {
-            id: showItemData.id,
-          },
-        });
-      }
-    },
-    *keyMoveItem({ payload }, { call, put, select }) {
-      const { showItemData } = yield select((state: any) => state.wufeng);
-      const { type } = payload;
-      if (showItemData && showItemData.id) {
-        let nextIndex = 0;
-        if (type === 'up' && showItemData.index !== 0) {
-          nextIndex = showItemData.index - 1 < 0 ? 0 : showItemData.index - 1;
-        } else if (type === 'down' && showItemData.index !== showItemData.maxLength - 1) {
-          nextIndex = showItemData.index + 1;
-        }
-        if (!nextIndex && nextIndex !== 0) return;
-        yield put({
-          type: 'moveItem',
-          payload: {
-            dragIndex: showItemData.index,
-            hoverIndex: nextIndex,
-            parentId: showItemData.parentId,
-          },
-        });
-        yield put({
-          type: 'save',
-          payload: {
-            showItemData: { ...showItemData, index: nextIndex },
-          },
-        });
-
-        // yield put({
-        //   type: "delItem",
-        //   payload: {
-        //     id: showItemData.id,
-        //   },
-        // });
-      }
-    },
-    *delItem({ payload }, { put, select }) {
-      const { components, showItemData } = yield select((state: any) => state.wufeng);
-      const data = deleteComponent(components, payload.id);
-      if (showItemData && showItemData.id === payload.id) {
-        yield put({
-          type: 'save',
-          payload: {
-            components: data,
-            showItemData: {},
-          },
-        });
-      } else {
-        yield put({
-          type: 'save',
-          payload: {
-            components: data,
-          },
-        });
-      }
-    },
-    *addchildrenCom({ payload }, { call, put, select }) {
-      const { sourceData, components } = yield select((state: any) => state.wufeng);
-      const { index, parentId, item } = payload;
-      function findComAndAddComponent(arrs: any[], pId: string, i: any) {
-        arrs.map((arr) => {
-          const { childrenCom } = arr;
-          if (arr.id === pId) {
-            const itemIndex = index === 'max' ? childrenCom.length : index;
-            const data = addComponent(childrenCom, i, itemIndex);
-            // eslint-disable-next-line
-            arr.childrenCom = data;
-          } else if (childrenCom && childrenCom.length > 0) {
-            // eslint-disable-next-line
-            arr.childrenCom = findComAndAddComponent(childrenCom, pId, i);
-          }
-          return arr;
-        });
-        return arrs;
-      }
-      yield put({
-        type: 'save',
-        payload: {
-          components: findComAndAddComponent(components, parentId, item),
-        },
-      });
-    },
     *addItem({ payload }, { call, put, select }) {
       const { parentId, item, index } = payload;
       // TODO: addchildrenCom 的逻辑未验证
@@ -182,7 +86,6 @@ const WuFengModel: WuFengModelType = {
         return;
       }
       const { components } = yield select((state: any) => state.wufeng);
-
       const data = addComponent(components, item, index === 'max' ? components.length : index);
       yield put({
         type: 'save',
@@ -249,51 +152,24 @@ const WuFengModel: WuFengModelType = {
       });
       return { isMove: false };
     },
-    *showItem({ payload }, { put }) {
-      const data = { ...payload };
-      yield put({
-        type: 'save',
-        payload: {
-          showItemData: data,
-        },
-      });
-    },
     *changeItemProp({ payload }, { call, put, select }) {
-      const { id, key, value } = payload;
-      if (!id) return;
+      const { id } = payload;
       const { components } = yield select((state: any) => state.wufeng);
-      function findComAndChangeProp(arrs: any[], i: any, k: any, v: any) {
-        arrs.map((item) => {
-          const { childrenCom } = item;
-          let newValue: any;
-          if (item.id === i) {
-            switch (item.component.propTypes[k]) {
-              case 'bool':
-                newValue = payload.value === 'true';
-                break;
-              case 'number':
-                newValue = parseInt(v, 10);
-                break;
-              case 'array':
-                newValue = JSON.parse(v);
-                break;
-              default:
-                break;
-            }
-            // eslint-disable-next-line
-            item.component.props[k] = newValue;
-          } else if (childrenCom && childrenCom.length > 0) {
-            // eslint-disable-next-line
-            item.childrenCom = findComAndChangeProp(childrenCom, i, k, v);
+      const findComAndChangeProp = (arrs: any[], i: any, value: any) => {
+        const data = [...arrs];
+        for (let key = 0; key <= data.length; ) {
+          if (data[key].id === i) {
+            data[key] = value;
+            break;
           }
-          return item;
-        });
-        return arrs;
-      }
+          key += 1;
+        }
+        return data;
+      };
       yield put({
         type: 'save',
         payload: {
-          components: findComAndChangeProp(components, id, key, value),
+          components: findComAndChangeProp(components, id, payload),
         },
       });
     },

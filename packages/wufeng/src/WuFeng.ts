@@ -1,10 +1,12 @@
 import { version } from '../package.json';
-import type { Component } from './types';
+import type { Component, Input } from '@wufeng/types';
 
-// utils
 export const isBrowser = typeof window !== 'undefined';
 
-function find<T = any>(target: T[], callback: (item: T, index: number, list: T[]) => boolean) {
+export function findItem<T = any>(
+  target: T[],
+  callback: (item: T, index: number, list: T[]) => boolean,
+) {
   const list = target;
   // Makes sures is always has an positive integer as length.
   // eslint-disable-next-line
@@ -20,8 +22,10 @@ function find<T = any>(target: T[], callback: (item: T, index: number, list: T[]
   }
   return null;
 }
-// utils:end
 
+const defaultLabels = {
+  children: '内容',
+};
 export class WuFeng {
   constructor() {
     if (WuFeng.singletonInstance) {
@@ -35,8 +39,18 @@ export class WuFeng {
   public components: Component[] = [];
   // TODO: 类型还没写，展示的所有区块
   public blocks: any[] = [];
-  // TODO: 类型还没写，右侧编辑的表单类型，有一个组件的属性是一些特定的操作，比如选择云上的图片，就不是简单的 input
-  public inputComponent: any[] = [];
+  // 右侧编辑的表单类型，有一个组件的属性是一些特定的操作，比如选择云上的图片，就不是简单的 input
+  public inputComponents: Input[] = [];
+
+  public labels: any = defaultLabels;
+
+  public findLabel(key: any) {
+    return this.labels[key];
+  }
+
+  public registerLabels(key: any, value: Component) {
+    this.labels[key] = value;
+  }
 
   public registerComponent(component: any, options: Component) {
     const spec = {
@@ -46,17 +60,35 @@ export class WuFeng {
     this.addComponent(spec);
   }
 
+  public registerInput(component: any, options: Input) {
+    const spec = {
+      class: component,
+      ...options,
+    };
+    this.addInputComponent(spec);
+  }
+
   private addComponent(component: Component) {
-    const current = find(this.components, (item) => item.name === component.name);
+    const current = findItem(this.components, (item) => item.name === component.name);
     if (current) {
-      // FIXME: why does sometimes we get an extra post without class - probably
-      // from postMessage handler wrong in some place
       if (current.class && !component.class) {
         return;
       }
       this.components.splice(this.components.indexOf(current), 1, component);
     } else {
       this.components.push(component);
+    }
+  }
+
+  private addInputComponent(component: Input) {
+    const current = findItem(this.inputComponents, (item) => item.name === component.name);
+    if (current) {
+      if (current.class && !component.class) {
+        return;
+      }
+      this.inputComponents.splice(this.inputComponents.indexOf(current), 1, component);
+    } else {
+      this.inputComponents.push(component);
     }
   }
 }
