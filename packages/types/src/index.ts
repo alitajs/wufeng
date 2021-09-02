@@ -9,6 +9,7 @@ export interface Input {
   friendlyName?: string;
   description?: string;
   defaultValue?: any;
+  class?: string;
   type: string;
   required?: boolean;
   autoFocus?: boolean;

@@ -47,7 +47,7 @@
 @s-device-shell-width: @s-device-border-width + 2px;
 @s-device-width: 375px;
 // @s-device-ratio: 19.5 / 9;
-@s-device-ratio: 16.5 / 9;
+@s-device-ratio: 15.5 / 9;
 
 .gen-device-style(@scale) {
   width: @s-device-width * @scale;
@@ -66,7 +66,7 @@
   width: @s-device-width;
   min-width: @s-device-width;
   height: @s-device-width * @s-device-ratio;
-  margin-left: @s-content-margin;
+  // margin-left: @s-content-margin;
   overflow: hidden;
   border-radius: 32px;
   .gen-device-style(1);
