@@ -15,8 +15,9 @@ import {
   // LoadingOutlined,
 } from '@ant-design/icons';
 import { Tooltip, Button } from 'antd';
+import './index.less';
 
-import './styles/index.less';
+const classPrefix = `wf-head`;
 
 function Header() {
   function onSave() {
@@ -105,7 +106,7 @@ function Header() {
   ];
   return (
     <>
-      <div className="nav">
+      <div className={classPrefix}>
         <div className="logo" />
         <ul className="menu">
           {/* 数据操作过程中按钮的loading状态 */}
