@@ -20,24 +20,24 @@ import './index.less';
 const classPrefix = `wf-head`;
 
 function Header() {
-  function onSave() {
+  const onSave = () => {
     // console.log('onSave');
-  }
-  function onShow() {
+  };
+  const onShow = () => {
     // console.log('onShow');
-  }
-  function onDownload() {
+  };
+  const onDownload = () => {
     // console.log('onDownload');
-  }
-  function onPublish() {
+  };
+  const onPublish = () => {
     // console.log('onPublish');
-  }
-  function onModify() {
+  };
+  const onModify = () => {
     // console.log('onModify');
-  }
-  function onHistory() {
+  };
+  const onHistory = () => {
     // console.log('onHistory');
-  }
+  };
   const menuItem = [
     {
       title: '保存',
@@ -107,7 +107,9 @@ function Header() {
   return (
     <>
       <div className={classPrefix}>
-        <div className="logo" />
+        <div className="logo-box border">
+          <div className="logo" />
+        </div>
         <ul className="menu">
           {/* 数据操作过程中按钮的loading状态 */}
           {/* <LoadingOutlined /> */}
