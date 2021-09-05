@@ -23,14 +23,20 @@ const PageLayout: FC<WFPageProps> = ({ ComponentFrame, DisplayFrame, RateFrame }
       </GridItem>
       <GridItem span={2}>
         <Page>
-          <Content>
+          <Content
+            style={{
+              flexDirection: 'row',
+              justifyContent: 'center',
+              display: 'flex',
+            }}
+          >
             <DisplayFrame />
           </Content>
         </Page>
       </GridItem>
       <GridItem span={1}>
         <Page>
-          <Content>
+          <Content style={{ backgroundColor: '#fafafa' }}>
             <RateFrame />
           </Content>
         </Page>

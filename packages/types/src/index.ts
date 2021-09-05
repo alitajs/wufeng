@@ -9,6 +9,7 @@ export interface Input {
   friendlyName?: string;
   description?: string;
   defaultValue?: any;
+  class?: string;
   type: string;
   required?: boolean;
   autoFocus?: boolean;
@@ -114,6 +115,7 @@ export interface Component {
    */
   inputs?: Input[];
   class?: any;
+  content?: any;
   defaultStyles?: Record<string, string>;
   /**
    * Turn on if your component can accept children. Be sure to use in combination with

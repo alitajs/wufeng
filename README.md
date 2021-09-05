@@ -9,10 +9,10 @@
 
 ## 工作流程
 
-1、 yarn
-2、 yarn build
-3、 cd packages/wufeng && yarn run watch （如果有同时修改其他的库，也需要另起watch服务）
-4、 yarn start:app
+1. yarn
+2. yarn build
+3. cd packages/wufeng && yarn run watch （如果有同时修改其他的库，也需要另起watch服务）
+4. yarn start:app
 
 ## 主题
 

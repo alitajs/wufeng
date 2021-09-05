@@ -14,7 +14,7 @@ interface IDeviceProps {
     hoverItem: any,
     monitor?: DropTargetMonitor,
   ) => void;
-  onClick?: (event: MouseEvent) => void;
+  onClick?: (event: MouseEvent, data: any) => void;
 }
 
 const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop, onClick }) => {
@@ -58,7 +58,12 @@ const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop, onClic
                 onDrop={onAddDrop}
               >
                 <Drag data={{ ...item, index }}>
-                  <Com.content {...props} onClick={onClick} />
+                  <Com.content
+                    {...props}
+                    onClick={(e: any) => {
+                      onClick?.(e, item);
+                    }}
+                  />
                 </Drag>
               </Drop>
             );
