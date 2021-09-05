@@ -25,7 +25,10 @@ const IndexPage: FC<IndexPageProps> = ({ wufeng, dispatch }) => {
       const isLayout = data?.component?.isLayout;
       const parentId = isLayout ? data.id : 'wufengmainroot';
       const index = !data.index && data.index !== 0 ? 'max' : data.index;
-      dispatch?.({ type: 'wufeng/addItem', payload: { parentId, item, index } });
+      dispatch?.({
+        type: 'wufeng/addItem',
+        payload: { parentId, item: item?.options ? item.options : item, index },
+      });
     }
   };
 

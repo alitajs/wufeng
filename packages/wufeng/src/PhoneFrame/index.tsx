@@ -49,7 +49,7 @@ const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop, onClic
         {pageData.map((item, index) => {
           const { name, props } = item.component;
           const Com = components.find((i) => i.name === name);
-          if (Com && Com.class) {
+          if (Com && Com.content) {
             return (
               <Drop
                 key={`drop${item.id}`}
@@ -58,7 +58,7 @@ const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop, onClic
                 onDrop={onAddDrop}
               >
                 <Drag data={{ ...item, index }}>
-                  <Com.class {...props} onClick={onClick} />
+                  <Com.content {...props} onClick={onClick} />
                 </Drag>
               </Drop>
             );
