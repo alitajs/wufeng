@@ -1,3 +1,8 @@
+export interface CardProps {
+  title: string;
+  subTitle: string;
+}
+
 export interface Component {
   id: number;
   type: string;
@@ -7,6 +12,7 @@ export interface Component {
   propTypes: any;
   defaultProps: any;
   style: any;
+  cardProps?: CardProps;
 }
 
 export interface ComponentGroup {

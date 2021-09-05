@@ -1,28 +1,39 @@
-import React from 'react';
 import type { FC } from 'react';
 import { Tabs } from 'antd';
-import { Page, Content, Grid, GridItem } from '@alita/react';
-import { wufengController } from '../';
+import { Grid } from '@alita/react';
+import { wufengController, Card } from '../';
 import type { Component } from '../';
 import { Drag } from '@alitajs/dnd';
+import * as Icons from '@alita/icons';
+
+const { TabPane } = Tabs;
 
 const ComponentsWare: FC = () => {
   const { components } = wufengController;
 
   return (
-    <Grid columns={2}>
-      {components.map((item: Component) => {
-        const { class: Com, ...reset } = item;
-        if (Com) {
-          return (
-            <Drag data={reset} key={item.name}>
-              <Com {...item.props} />
-            </Drag>
-          );
-        }
-        return null;
-      })}
-    </Grid>
+    <Tabs centered>
+      <TabPane tab="动态表单" key="1" style={{ padding: '0 10px' }}>
+        <Grid columns={2} gap="10">
+          {components.map((item: Component, index: number) => {
+            const { class: Com, cardProps, ...reset } = item;
+            const iconList = Object.keys(Icons);
+            if (Com) {
+              return (
+                <Drag data={reset} key={item.name}>
+                  <Card
+                    Icon={Icons[iconList[index]]}
+                    title={cardProps?.title || ''}
+                    subTitle={cardProps?.subTitle || ''}
+                  />
+                </Drag>
+              );
+            }
+            return null;
+          })}
+        </Grid>
+      </TabPane>
+    </Tabs>
   );
 };
 

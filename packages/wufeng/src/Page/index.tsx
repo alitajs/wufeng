@@ -16,7 +16,7 @@ const PageLayout: FC<WFPageProps> = ({ ComponentFrame, DisplayFrame, RateFrame }
     <Grid className={classPrefix} columns={4}>
       <GridItem span={1}>
         <Page>
-          <Content>
+          <Content style={{ backgroundColor: '#fafafa' }}>
             <ComponentFrame />
           </Content>
         </Page>

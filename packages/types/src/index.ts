@@ -1,3 +1,5 @@
+import { CardProps } from 'wufeng';
+
 export type JSONValue = string | number | boolean | JSONObject | JSONArray;
 
 export type JSONObject = Record<string, JSONValue>;
@@ -115,7 +117,7 @@ export interface Component {
    */
   inputs?: Input[];
   class?: any;
-  content?: any;
+  cardProps?: CardProps;
   defaultStyles?: Record<string, string>;
   /**
    * Turn on if your component can accept children. Be sure to use in combination with

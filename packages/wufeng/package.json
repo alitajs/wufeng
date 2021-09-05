@@ -29,6 +29,7 @@
     "@wufeng/types": "0.0.1",
     "ahooks": "^2.10.9",
     "antd": "^4.16.13",
+    "@alita/icons": "0.0.1",
     "rc-editor-list": "^2.0.1"
   }
 }
