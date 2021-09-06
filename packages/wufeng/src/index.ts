@@ -1,12 +1,15 @@
 import { WuFeng, findItem } from './WuFeng';
 import { Input } from './BuiltInInputs';
+import { Select } from './BuiltInInputs';
+// import { DformSwitch }  from './BuiltInInputs';
 
 const wufeng = new WuFeng();
 WuFeng.singletonInstance = wufeng;
 
-wufeng.registerInput(Input, { name: 'string' });
-// wufeng.registerInput(DformSelect, { name: 'select' })
+wufeng.registerInput(Input, { name: 'string', type: 'string' });
+wufeng.registerInput(Select, { name: 'select', type: 'select' });
 // wufeng.registerInput(DformSwitch, { name: 'bool' })
+
 export { wufeng as wufengController };
 export { findItem };
 export { default as WFPage } from './Page';
