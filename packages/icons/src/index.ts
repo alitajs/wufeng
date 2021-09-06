@@ -93,3 +93,6 @@ export const Toolbar = /*@__PURE__*/ createReactComponent<HTMLImageElement, HTML
 export const Typography = /*@__PURE__*/ createReactComponent<HTMLImageElement, HTMLImageElement>(
   'typography',
 );
+export const Wufeng = /*@__PURE__*/ createReactComponent<HTMLImageElement, HTMLImageElement>(
+  'wufeng',
+);
