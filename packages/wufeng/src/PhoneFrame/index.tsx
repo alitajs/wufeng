@@ -58,12 +58,13 @@ const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop, onClic
                 onDrop={onAddDrop}
               >
                 <Drag data={{ ...item, index }}>
-                  <Com.class
-                    {...props}
+                  <div
                     onClick={(e: any) => {
                       onClick?.(e, item);
                     }}
-                  />
+                  >
+                    <Com.class {...props} />
+                  </div>
                 </Drag>
               </Drop>
             );

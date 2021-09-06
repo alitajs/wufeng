@@ -77,13 +77,10 @@ export const DformData: ComponentGroup[] = [
         id: 500003,
         type: 'AddressPicker',
         props: {
-          title: '居住地址',
-          fieldProps: 'homeAddr',
+          title: '地址选择器',
+          fieldProps: 'addressPicker',
           placeholderList: ['请选择省', '请选择市', '请选择区'],
-          data: {
-            label: ['福建省', '福州市', '鼓楼区'],
-            value: ['35', '3501', '350102'],
-          },
+          data: [],
         },
         propTypes: {
           title: 'string',
@@ -102,12 +99,12 @@ export const DformData: ComponentGroup[] = [
         id: 500004,
         type: 'CoverRadio',
         props: {
-          title: '标题',
+          title: '方形单选框',
           data: [
-            { sexName: '男', sexId: 'man' },
-            { sexName: '女', sexId: 'woman' },
+            { label: '男', value: 'man' },
+            { label: '女', value: 'woman' },
           ],
-          fieldProps: 'sex',
+          fieldProps: 'coverRadio',
         },
         propTypes: {
           title: 'string',
@@ -125,14 +122,16 @@ export const DformData: ComponentGroup[] = [
         id: 500005,
         type: 'ExtraInput',
         props: {
-          fieldProps: 'minPrise',
-          fieldProps2: 'maxPrise',
-          title: '价格区间(数字输入)',
+          fieldProps: 'extraInput',
+          fieldProps2: 'extraInput2',
+          title: '复杂输入框',
+          positionType: 'horizontal',
         },
         propTypes: {
           fieldProps: 'string',
           fieldProps2: 'string',
           title: 'string',
+          positionType: 'string',
         },
         defaultProps: {},
         style: {},
@@ -145,8 +144,8 @@ export const DformData: ComponentGroup[] = [
         id: 500006,
         type: 'MultiplePicker',
         props: {
-          title: '我喜欢的城市',
-          fieldProps: 'myCity',
+          title: '多选框',
+          fieldProps: 'multiplePicker',
           data: [
             { label: '北京', value: 'beijing' },
             { label: '上海', value: 'shanghai' },
@@ -169,16 +168,16 @@ export const DformData: ComponentGroup[] = [
         id: 500007,
         type: 'DformCheckBox',
         props: {
-          title: '喜欢的水果',
-          fieldProps: 'fruit',
+          title: '多选框',
+          fieldProps: 'checkbox',
           data: [
-            { foodId: 'apple', foodName: '苹果' },
-            { foodId: 'banana', foodName: '香蕉' },
-            { foodId: 'orange', foodName: '橙子' },
-            { foodId: 'watermelon', foodName: '西瓜' },
-            { foodId: 'hami', foodName: '哈密瓜' },
-            { foodId: 'pineapple', foodName: '菠萝' },
-            { foodId: 'pear', foodName: '香梨' },
+            { value: 'apple', label: '苹果' },
+            { value: 'banana', label: '香蕉' },
+            { value: 'orange', label: '橙子' },
+            { value: 'watermelon', label: '西瓜' },
+            { value: 'hami', label: '哈密瓜' },
+            { value: 'pineapple', label: '菠萝' },
+            { value: 'pear', label: '香梨' },
           ],
         },
         propTypes: {
@@ -219,12 +218,14 @@ export const DformData: ComponentGroup[] = [
         id: 500009,
         type: 'DformDatePicker',
         props: {
-          fieldProps: 'Date',
-          title: 'Date',
+          fieldProps: 'datePicker',
+          title: '时间选择框',
+          placeholder: '请选择时间',
         },
         propTypes: {
           title: 'string',
           fieldProps: 'string',
+          placeholder: '请选择时间',
         },
         defaultProps: {},
         style: {},
@@ -262,8 +263,8 @@ export const DformData: ComponentGroup[] = [
         id: 500011,
         type: 'DformImagePicker',
         props: {
-          title: '请添加图片',
-          fieldProps: 'insertImg',
+          title: '图片选择框',
+          fieldProps: 'imagePicker',
         },
         propTypes: {
           title: 'string',
@@ -280,8 +281,8 @@ export const DformData: ComponentGroup[] = [
         id: 500012,
         type: 'DformRadio',
         props: {
-          title: '上学',
-          fieldProps: 'goToSchool',
+          title: '单选框',
+          fieldProps: 'radio',
           data: [
             {
               label: '是',
@@ -310,8 +311,8 @@ export const DformData: ComponentGroup[] = [
         type: 'DformSelect',
         props: {
           type: 'select',
-          title: '季节',
-          fieldProps: 'userPicker1',
+          title: 'andm 选择框',
+          fieldProps: 'select',
           data: [
             [
               {
@@ -352,8 +353,8 @@ export const DformData: ComponentGroup[] = [
         id: 500014,
         type: 'DformSwitch',
         props: {
-          title: 'On',
-          fieldProps: 'on',
+          title: '开关选择器',
+          fieldProps: 'switch',
         },
         propTypes: {
           title: 'string',
@@ -370,8 +371,8 @@ export const DformData: ComponentGroup[] = [
         id: 500015,
         type: 'DformText',
         props: {
-          title: '用户名',
-          fieldProps: 'username',
+          title: '文本框',
+          fieldProps: 'text',
         },
         propTypes: {
           title: 'string',
@@ -388,8 +389,8 @@ export const DformData: ComponentGroup[] = [
         id: 500016,
         type: 'DformTextArea',
         props: {
-          title: '学校概况',
-          fieldProps: 'textArea0',
+          title: '多行输入框',
+          fieldProps: 'textArea',
         },
         propTypes: {
           title: 'string',
@@ -406,15 +407,18 @@ export const DformData: ComponentGroup[] = [
         id: 500017,
         type: 'RangeDatePicker',
         props: {
-          title: '时间(datetime)',
+          title: '时间区间选择器',
           fieldProps: 'rangeTime1',
           fieldProps2: 'rangeTime2',
+          positionType: 'horizontal',
         },
         propTypes: {
           title: 'string',
           fieldProps: 'string',
           fieldProps2: 'string',
+          positionType: 'string',
         },
+
         defaultProps: {},
         style: {},
         cardProps: {
@@ -429,14 +433,14 @@ export const DformData: ComponentGroup[] = [
 export default {
   DformInput,
   DformPicker,
-  // AddressPicker,
+  AddressPicker,
   CoverRadio,
   ExtraInput,
   MultiplePicker,
   DformCheckBox,
-  DformCustom,
+  // DformCustom,
   DformDatePicker,
-  DformFile,
+  // DformFile,
   DformImagePicker,
   DformRadio,
   DformSelect,
