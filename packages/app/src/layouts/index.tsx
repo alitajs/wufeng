@@ -11,7 +11,7 @@ const Layout: FC = ({ children }) => {
         <Header>
           <WFHeader />
         </Header>
-        <Content style={{ overflow: 'hidden' }}>{children}</Content>
+        <Content style={{ overflow: 'hidden', zIndex: 99 }}>{children}</Content>
         <Footer>footer</Footer>
       </Page>
     </DndProvider>
