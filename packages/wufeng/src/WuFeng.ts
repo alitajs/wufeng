@@ -27,6 +27,7 @@ const defaultLabels = {
   children: '内容',
   type: '类型',
   size: '字体大小',
+  inputNumber: '数字输入框',
   date: '选择日期',
 };
 export class WuFeng {
