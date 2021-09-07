@@ -4,11 +4,11 @@ import AntdSwitch from 'antd/lib/switch';
 import FormItem from './FormItem';
 import 'antd/lib/switch/style/index';
 
-const Select: FC = (props) => {
+const Switch: FC = (props) => {
   return (
     <FormItem {...props}>
       <AntdSwitch />
     </FormItem>
   );
 };
-export default Select;
+export default Switch;
