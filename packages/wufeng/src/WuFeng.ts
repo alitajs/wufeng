@@ -27,6 +27,7 @@ const defaultLabels = {
   children: '内容',
   type: '类型',
   size: '字体大小',
+  date: '选择日期',
 };
 export class WuFeng {
   constructor() {
