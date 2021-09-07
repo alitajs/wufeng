@@ -163,6 +163,8 @@ export const DataComponet: ComponentGroup[] = [
           size: 'large',
           loading: false,
           disabled: false,
+          date: 'DateString',
+          inputNumber: 1,
         },
         propTypes: {
           type: ['primary', 'ghost', 'warning'],
@@ -170,6 +172,8 @@ export const DataComponet: ComponentGroup[] = [
           disabled: 'bool',
           loading: 'bool',
           size: ['large', 'small'],
+          date: 'DateString',
+          inputNumber: 'number',
         },
         defaultProps: {},
         style: {},

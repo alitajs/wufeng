@@ -2,6 +2,8 @@ import { WuFeng, findItem } from './WuFeng';
 import { Input } from './BuiltInInputs';
 import { Select } from './BuiltInInputs';
 import { Switch } from './BuiltInInputs';
+import { InputNumber } from './BuiltInInputs';
+import { DatePicker } from './BuiltInInputs';
 
 const wufeng = new WuFeng();
 WuFeng.singletonInstance = wufeng;
@@ -9,6 +11,8 @@ WuFeng.singletonInstance = wufeng;
 wufeng.registerInput(Input, { name: 'string', type: 'string' });
 wufeng.registerInput(Select, { name: 'select', type: 'select' });
 wufeng.registerInput(Switch, { name: 'bool', type: 'bool' });
+wufeng.registerInput(InputNumber, { name: 'number', type: 'number' });
+wufeng.registerInput(DatePicker, { name: 'DateString', type: 'DateString' });
 
 export { wufeng as wufengController };
 export { findItem };
