@@ -54,7 +54,7 @@
     tmp "^0.1.0"
     valid-identifier "^0.0.2"
 
-"@alitajs/dform@3.x", "@alitajs/dform@^3.0.1":
+"@alitajs/dform@3.x":
   version "3.0.1"
   resolved "https://registry.npmjs.org/@alitajs/dform/-/dform-3.0.1.tgz#7cab109072802bdcae533a9abc2715b9341b6778"
   integrity sha512-5LAmeEs77yH//admzawpHBrSubxZkkFCEboRWQemZuTDty4+fKLRDJLCTilQicX0Du76D4IYVnCRBEhabUNz8g==
