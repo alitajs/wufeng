@@ -25,6 +25,8 @@ export function findItem<T = any>(
 
 const defaultLabels = {
   children: '内容',
+  type: '类型',
+  size: '字体大小',
 };
 export class WuFeng {
   constructor() {
@@ -45,7 +47,7 @@ export class WuFeng {
   public labels: any = defaultLabels;
 
   public findLabel(key: any) {
-    return this.labels[key];
+    return this.labels[key] || key;
   }
 
   public registerLabels(key: any, value: Component) {
