@@ -10,18 +10,18 @@ export const dashToPascalCase = (str: string) =>
 
 type Mutable<T> = { -readonly [P in keyof T]-?: T[P] }; // Remove readonly and ?
 
-export const mergeRefs = <ElementType,>(...refs: React.Ref<ElementType>[]) => (
-  value: ElementType,
-) =>
-  refs.forEach((ref) => {
-    if (typeof ref === 'function') {
-      ref(value);
-    } else if (ref != null) {
-      // This is typed as readonly so we need to allow for override
-      // eslint-disable-next-line
-      (ref as Mutable<React.RefObject<ElementType>>).current = value;
-    }
-  });
+export const mergeRefs =
+  <ElementType,>(...refs: React.Ref<ElementType>[]) =>
+  (value: ElementType) =>
+    refs.forEach((ref) => {
+      if (typeof ref === 'function') {
+        ref(value);
+      } else if (ref != null) {
+        // This is typed as readonly so we need to allow for override
+        // eslint-disable-next-line
+        (ref as Mutable<React.RefObject<ElementType>>).current = value;
+      }
+    });
 
 export const createForwardRef = <PropType, ElementType>(
   ReactComponent: any,
@@ -45,7 +45,7 @@ export const createReactComponent = <
   PropType,
   ElementType extends HTMLElement,
   ContextStateType = {},
-  ExpandedPropsTypes = {}
+  ExpandedPropsTypes = {},
 >(
   imgName: string,
   ReactComponentContext?: React.Context<ContextStateType>,

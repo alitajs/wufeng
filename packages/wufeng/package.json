@@ -23,9 +23,10 @@
     "react": ">=16.8.6"
   },
   "dependencies": {
-    "@alita/react": "0.1.1",
-    "@alitajs/dnd": "1.0.1",
     "@alita/icons": "0.0.1",
+    "@alita/react": "0.1.1",
+    "@alitajs/dform": "^3.x",
+    "@alitajs/dnd": "1.0.1",
     "@ant-design/icons": "^4.6.4",
     "@wufeng/types": "0.0.1",
     "ahooks": "^2.10.9",

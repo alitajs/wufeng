@@ -20,7 +20,9 @@ export { default as WFPhoneFrame } from './PhoneFrame';
 export { default as DataSource } from './DataSource';
 export { default as RateFrame } from './RateFrame';
 export { default as Header } from './Header';
+export { default as Card } from './Card';
 
 export * from './utils';
 export * from '@alitajs/dnd';
 export * from '@wufeng/types';
+export * from './Card';

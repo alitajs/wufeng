@@ -18,10 +18,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@alita/icons": "0.0.1",
     "@alita/react": "0.1.1",
+    "@alitajs/dform": "^3.x",
     "@alitajs/dnd": "1.0.1",
     "@wufeng/model": "0.0.1",
-    "@alita/icons": "0.0.1",
     "wufeng": "0.0.1"
   }
 }

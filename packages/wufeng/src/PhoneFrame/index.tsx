@@ -1,5 +1,4 @@
 import type { FC } from 'react';
-import React from 'react';
 import { Drop, Drag, wufengController } from '../';
 import type { DropTargetMonitor } from '../';
 import './index.less';
@@ -58,12 +57,13 @@ const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop, onClic
                 onDrop={onAddDrop}
               >
                 <Drag data={{ ...item, index }}>
-                  <Com.class
-                    {...props}
+                  <div
                     onClick={(e: any) => {
                       onClick?.(e, item);
                     }}
-                  />
+                  >
+                    <Com.class {...props} />
+                  </div>
                 </Drag>
               </Drop>
             );
