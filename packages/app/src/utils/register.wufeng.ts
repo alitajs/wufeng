@@ -6,6 +6,7 @@ import * as Yinhu from '@alita/react';
 import { getItemByType } from './data_utils';
 import { DataComponet } from './data_componet';
 import DformComponent, { DformData } from './data_dform';
+import { DFORM_FILE_NAME } from './menu';
 
 const antdMobile = ['accordion', 'action-sheet', 'button', 'icon'];
 
@@ -40,9 +41,41 @@ const antdMobile = ['accordion', 'action-sheet', 'button', 'icon'];
 //   }
 // });
 
+const list = [
+  'AddressPicker',
+  'CoverRadio',
+  // 'ExtraInput',
+  'MultiplePicker',
+  'RangeDatePicker',
+  'NomarInput',
+  'NomarSelect',
+  'NomarPicker',
+  'NomarSwitch',
+  'NomarTextArea',
+  'NomarDatePicker',
+  'NomarRadio',
+  'NomarCheckBox',
+  'NomarImagePicker',
+  'NomarCustom',
+  'NomarText',
+  'NomarFile',
+];
+
 Object.keys(DformComponent).forEach((item: string) => {
   const options = getItemByType(DformData, item) as any;
+  // console.log(
+  //   item,
+  //   import(`@alitajs/dform/lib/components/${item}/index`).then((res) => {
+  //     console.log(res.default);
+  //   }),
+  // );
   if (options?.type) {
     wufengController.registerComponent(DformComponent[item], { name: `${item}`, ...options });
+    // wufengController.registerComponent(
+    //   dynamic(() =>
+    //     import(`@alitajs/dform/lib/components/${item}/index`).then((res) => res.default as any),
+    //   ),
+    //   { name: `${item}`, ...options },
+    // );
   }
 });

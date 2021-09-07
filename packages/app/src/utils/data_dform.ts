@@ -24,18 +24,18 @@ export const DformData: ComponentGroup[] = [
   {
     type: 'dform',
     data: [
-      {
-        id: 500000,
-        type: 'DynamicForm',
-        props: {},
-        propTypes: {},
-        defaultProps: {},
-        style: {},
-        cardProps: {
-          title: 'DynamicForm',
-          subTitle: '表单',
-        },
-      },
+      // {
+      //   id: 500000,
+      //   type: 'DynamicForm',
+      //   props: {},
+      //   propTypes: {},
+      //   defaultProps: {},
+      //   style: {},
+      //   cardProps: {
+      //     title: 'DynamicForm',
+      //     subTitle: '表单',
+      //   },
+      // },
       {
         id: 500001,
         type: 'DformInput',
@@ -443,7 +443,7 @@ export const DformData: ComponentGroup[] = [
 ];
 
 export default {
-  DynamicForm,
+  // DynamicForm,
   DformInput,
   DformPicker,
   AddressPicker,

@@ -25,7 +25,7 @@
   "dependencies": {
     "@alita/icons": "0.0.1",
     "@alita/react": "0.1.1",
-    "@alitajs/dform": "3.x",
+    "@alitajs/dform": "^3.x",
     "@alitajs/dnd": "1.0.1",
     "@ant-design/icons": "^4.6.4",
     "@wufeng/types": "0.0.1",

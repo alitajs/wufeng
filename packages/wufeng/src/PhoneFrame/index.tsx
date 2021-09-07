@@ -1,5 +1,4 @@
 import type { FC } from 'react';
-import DynamicForm, { useForm } from '@alitajs/dform';
 import { Drop, Drag, wufengController } from '../';
 import type { DropTargetMonitor } from '../';
 import './index.less';
@@ -19,7 +18,6 @@ interface IDeviceProps {
 
 const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop, onClick }) => {
   const { components } = wufengController;
-  const [form] = useForm();
 
   return (
     <div className="wf-phone-device" data-device-type="iOS">
@@ -64,9 +62,7 @@ const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop, onClic
                       onClick?.(e, item);
                     }}
                   >
-                    <DynamicForm form={form}>
-                      <Com.class {...props} />
-                    </DynamicForm>
+                    <Com.class {...props} />
                   </div>
                 </Drag>
               </Drop>
