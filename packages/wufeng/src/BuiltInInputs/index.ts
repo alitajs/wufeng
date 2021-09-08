@@ -5,3 +5,4 @@ export { default as Switch } from './Switch';
 export { default as InputNumber } from './InputNumber';
 export { default as DatePicker } from './DatePicker';
 export { default as Slider } from './Slider';
+export { default as Radio } from './Radio';

@@ -237,7 +237,7 @@ export const DformData: ComponentGroup[] = [
         propTypes: {
           title: 'string',
           fieldProps: 'string',
-          placeholder: '请选择时间',
+          placeholder: 'string',
         },
         defaultProps: {},
         style: {},
