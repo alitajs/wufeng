@@ -165,6 +165,7 @@ export const DataComponet: ComponentGroup[] = [
           disabled: false,
           date: 'DateString',
           inputNumber: 1,
+          slider: 'slider',
         },
         propTypes: {
           type: ['primary', 'ghost', 'warning'],
@@ -174,6 +175,7 @@ export const DataComponet: ComponentGroup[] = [
           size: ['large', 'small'],
           date: 'DateString',
           inputNumber: 'number',
+          slider: 'slider',
         },
         defaultProps: {},
         style: {},
