@@ -1,6 +1,10 @@
-import { CardProps } from 'wufeng';
+export interface CardProps {
+  Icon: any;
+  title: string;
+  subTitle: string;
+}
 
-export type JSONValue = string | number | boolean | JSONObject | JSONArray;
+export type JSONValue = any;
 
 export type JSONObject = Record<string, JSONValue>;
 
