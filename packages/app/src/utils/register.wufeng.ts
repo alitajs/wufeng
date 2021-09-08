@@ -26,6 +26,23 @@ const antdMobile = ['accordion', 'action-sheet', 'button', 'icon'];
 //   }
 // });
 
+wufengController.registerComponent(
+  dynamic(() => import(`../components/DynamicForm`).then((res) => res.default as any)),
+  {
+    name: 'DynamicForm',
+    id: 500000,
+    type: 'DynamicForm',
+    props: {},
+    propTypes: {},
+    defaultProps: {},
+    style: {},
+    cardProps: {
+      title: '动态表单',
+      subTitle: '表单',
+    },
+  },
+);
+
 Object.keys(DformComponent).forEach((item: string) => {
   const options = getItemByType(DformData, item) as any;
   if (options?.type) {

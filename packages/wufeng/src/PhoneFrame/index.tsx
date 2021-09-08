@@ -19,7 +19,6 @@ interface IDeviceProps {
 
 const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop, onClick }) => {
   const { components } = wufengController;
-  const [form] = useForm();
 
   return (
     <div className="wf-phone-device" data-device-type="iOS">
@@ -47,30 +46,10 @@ const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop, onClic
           overflowY: 'auto',
         }}
       >
-        <DynamicForm form={form}>
-          {pageData.map((item, index) => {
-            const { name, props } = item.component;
-            const Com = components.find((i) => i.name === name);
-            if (Com && Com.class) {
-              return (
-                <Drop
-                  key={`drop${item.id}`}
-                  data={{ ...item, index }}
-                  onHover={onMoveDrop}
-                  onDrop={onAddDrop}
-                >
-                  <Drag data={{ ...item, index }}>
-                    <div
-                      onClick={(e: any) => {
-                        onClick?.(e, item);
-                      }}
-                    >
-                      <Com.class {...props} />
-                    </div>
-                  </Drag>
-                </Drop>
-              );
-            }
+        {pageData.map((item, index) => {
+          const { name, props } = item.component;
+          const Com = components.find((i) => i.name === name);
+          if (Com && Com.class) {
             return (
               <Drop
                 key={`drop${item.id}`}
@@ -79,14 +58,32 @@ const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop, onClic
                 onDrop={onAddDrop}
               >
                 <Drag data={{ ...item, index }}>
-                  <div style={{ height: '40px', backgroundColor: 'red', color: 'white' }}>
-                    未找到组件，请检查组件类型
+                  <div
+                    onClick={(e: any) => {
+                      onClick?.(e, item);
+                    }}
+                  >
+                    <Com.class {...props} />
                   </div>
                 </Drag>
               </Drop>
             );
-          })}
-        </DynamicForm>
+          }
+          return (
+            <Drop
+              key={`drop${item.id}`}
+              data={{ ...item, index }}
+              onHover={onMoveDrop}
+              onDrop={onAddDrop}
+            >
+              <Drag data={{ ...item, index }}>
+                <div style={{ height: '40px', backgroundColor: 'red', color: 'white' }}>
+                  未找到组件，请检查组件类型
+                </div>
+              </Drag>
+            </Drop>
+          );
+        })}
         {/* <iframe title="dumi-previewer" src={url} key={renderKey} /> */}
       </Drop>
       <div className="wf-phone-device-action"></div>

@@ -54,10 +54,10 @@
     tmp "^0.1.0"
     valid-identifier "^0.0.2"
 
-"@alitajs/dform@3.x":
-  version "3.0.1"
-  resolved "https://registry.npmjs.org/@alitajs/dform/-/dform-3.0.1.tgz#7cab109072802bdcae533a9abc2715b9341b6778"
-  integrity sha512-5LAmeEs77yH//admzawpHBrSubxZkkFCEboRWQemZuTDty4+fKLRDJLCTilQicX0Du76D4IYVnCRBEhabUNz8g==
+"@alitajs/dform@3.0.5":
+  version "3.0.5"
+  resolved "https://registry.npmjs.org/@alitajs/dform/-/dform-3.0.5.tgz#98f73cec81d19748b9c33591302d0c15f3ac7a40"
+  integrity sha512-+Cidb/3JKsnidus5C4i7MwIKVi2eHX3iZj65gSQ/9F49vOCsGAbF8zGwxpdRtxPHNTo/TunM5noa4ajc6LJBog==
   dependencies:
     "@bang88/china-city-data" "^1.0.0"
     antd-mobile "^2.3.4"
