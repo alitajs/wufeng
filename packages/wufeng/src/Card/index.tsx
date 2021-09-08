@@ -1,12 +1,7 @@
-import React, { FC } from 'react';
+import type { FC } from 'react';
 import { Card } from 'antd';
+import type { CardProps } from '@wufeng/types';
 import './index.less';
-
-export interface CardProps {
-  Icon: React.ReactNode;
-  title: string;
-  subTitle: string;
-}
 
 const CardComp: FC<CardProps> = ({ Icon, title, subTitle }) => {
   return (
