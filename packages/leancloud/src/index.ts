@@ -1,12 +1,7 @@
-import AV from 'leancloud-storage';
+import AV from './AV';
+import register from './register';
+import { ResultTitles } from './constant';
 
-export const appId = 'AT5vBa2k58srGQfLmo28OmVz-gzGzoHsz';
-export const appKey = 'pu7KdtCyhW3E1bH2Eyihga7g';
-
-AV.init({
-  appId,
-  appKey,
-  serverURLs: 'https://at5vba2k.lc-cn-n1-shared.com',
-});
-
+export * from './types';
+export { AV, register, ResultTitles };
 export default AV;

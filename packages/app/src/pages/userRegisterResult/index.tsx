@@ -8,9 +8,9 @@ import styles from './index.less';
 const actions = (
   <div className={styles.actions}>
     <a href="">
-      <Button size="large" type="primary">
+      {/* <Button size="large" type="primary">
         <span>查看邮箱</span>
-      </Button>
+      </Button> */}
     </a>
     <Link to="/">
       <Button size="large">返回首页</Button>
@@ -33,7 +33,8 @@ const RegisterResult: React.FC<RouteChildrenProps> = ({ location }) => {
           <span>你的账户：{email} 注册成功</span>
         </div>
       }
-      subTitle="激活邮件已发送到你的邮箱中，邮件有效期为24小时。请及时登录邮箱，点击邮件中的链接激活帐户。"
+      // subTitle="激活邮件已发送到你的邮箱中，邮件有效期为24小时。请及时登录邮箱，点击邮件中的链接激活帐户。"
+      subTitle="请牢记你的邮箱，你可以使用它来重制你的密码。"
       extra={actions}
     />
   );

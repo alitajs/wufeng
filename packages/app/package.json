@@ -24,6 +24,7 @@
     "@alitajs/dnd": "1.0.1",
     "@ant-design/pro-form": "^1.39.0",
     "@wufeng/model": "0.0.1",
+    "@alita/cloud":"0.0.1",
     "wufeng": "0.0.1"
   }
 }

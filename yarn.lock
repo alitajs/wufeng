@@ -47,7 +47,7 @@
     tmp "^0.1.0"
     valid-identifier "^0.0.2"
 
-"@alitajs/dform@^3.x":
+"@alitajs/dform@3.0.5":
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/@alitajs/dform/-/dform-3.0.5.tgz#98f73cec81d19748b9c33591302d0c15f3ac7a40"
   integrity sha512-+Cidb/3JKsnidus5C4i7MwIKVi2eHX3iZj65gSQ/9F49vOCsGAbF8zGwxpdRtxPHNTo/TunM5noa4ajc6LJBog==
