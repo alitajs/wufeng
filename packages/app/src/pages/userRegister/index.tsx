@@ -4,8 +4,10 @@ import { Form, Button, Col, Input, Popover, Progress, Row, Select, message } fro
 import type { Store } from 'antd/es/form/interface';
 import { Link, useRequest, history } from 'umi';
 import { Wufeng } from '@alita/icons';
+import { register } from '@alita/cloud';
+import type { RegisterResponse, ErrorResponse } from '@alita/cloud';
 import type { StateType } from './service';
-import { fakeRegister } from './service';
+// import { fakeRegister } from './service';
 
 import styles from './index.less';
 
@@ -80,22 +82,32 @@ const Register: FC = () => {
     return 'poor';
   };
 
-  const { loading: submitting, run: register } = useRequest<{ data: StateType }>(fakeRegister, {
-    manual: true,
-    onSuccess: (data, params) => {
-      if (data.status === 'ok') {
-        message.success('注册成功！');
-        history.push({
-          pathname: '/user/register-result',
-          state: {
-            account: params.email,
-          },
-        });
-      }
-    },
-  });
   const onFinish = (values: Store) => {
-    register(values);
+    const { mail, mobile, username, password } = values;
+
+    register({
+      username,
+      password,
+      phone: mobile,
+      email: mail,
+    }).then(
+      (data: RegisterResponse) => {
+        console.log(data);
+        if (data.attributes) {
+          message.success('注册成功！');
+          history.push({
+            pathname: '/userRegisterResult',
+            state: {
+              account: data.attributes.username,
+            },
+          });
+        }
+      },
+      (err: ErrorResponse) => {
+        console.log(err);
+        message.error(err.rawMessage);
+      },
+    );
   };
 
   const checkConfirm = (_: any, value: string) => {
@@ -166,6 +178,17 @@ const Register: FC = () => {
           <h3>注册</h3>
           <Form form={form} name="UserRegister" onFinish={onFinish}>
             <FormItem
+              name="username"
+              rules={[
+                {
+                  required: true,
+                  message: '请输入用户名!',
+                },
+              ]}
+            >
+              <Input size="large" placeholder="用户名" />
+            </FormItem>
+            <FormItem
               name="mail"
               rules={[
                 {
@@ -233,18 +256,18 @@ const Register: FC = () => {
               <Input size="large" type="password" placeholder="确认密码" />
             </FormItem>
             <InputGroup compact>
-              <Select size="large" value={prefix} onChange={changePrefix} style={{ width: '20%' }}>
+              <Select size="large" value={prefix} onChange={changePrefix} style={{ width: '21%' }}>
                 <Option value="86">+86</Option>
                 <Option value="87">+87</Option>
               </Select>
               <FormItem
-                style={{ width: '80%' }}
+                style={{ width: '79%' }}
                 name="mobile"
                 rules={[
-                  {
-                    required: true,
-                    message: '请输入手机号!',
-                  },
+                  // {
+                  //   required: true,
+                  //   message: '请输入手机号!',
+                  // },
                   {
                     pattern: /^\d{11}$/,
                     message: '手机号格式错误!',
@@ -254,7 +277,7 @@ const Register: FC = () => {
                 <Input size="large" placeholder="手机号" />
               </FormItem>
             </InputGroup>
-            <Row gutter={8}>
+            {/* <Row gutter={8}>
               <Col span={16}>
                 <FormItem
                   name="captcha"
@@ -278,11 +301,11 @@ const Register: FC = () => {
                   {count ? `${count} s` : '获取验证码'}
                 </Button>
               </Col>
-            </Row>
+            </Row> */}
             <FormItem>
               <Button
                 size="large"
-                loading={submitting}
+                // loading={submitting}
                 className={styles.submit}
                 type="primary"
                 htmlType="submit"
