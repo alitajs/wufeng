@@ -2,12 +2,12 @@ import React from 'react';
 import type { FC } from 'react';
 import AntdSelect from 'antd/lib/select';
 import FormItem from './FormItem';
-import 'antd/lib/input/style/index';
+import 'antd/lib/select/style/index';
 
 const Select: FC = (props) => {
   const { Option } = AntdSelect;
 
-  // TODO: 数据源编辑器需要重新设计
+  // TODO: ????????????
   const cityData = ['Hangzhou', 'Ningbo', 'Wenzhou'];
 
   return (

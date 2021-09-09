@@ -1,4 +1,10 @@
-export type JSONValue = string | number | boolean | JSONObject | JSONArray;
+export interface CardProps {
+  Icon: any;
+  title: string;
+  subTitle: string;
+}
+
+export type JSONValue = any;
 
 export type JSONObject = Record<string, JSONValue>;
 
@@ -115,6 +121,7 @@ export interface Component {
    */
   inputs?: Input[];
   class?: any;
+  cardProps?: CardProps;
   defaultStyles?: Record<string, string>;
   /**
    * Turn on if your component can accept children. Be sure to use in combination with

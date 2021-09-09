@@ -27,6 +27,16 @@ const defaultLabels = {
   children: '内容',
   type: '类型',
   size: '字体大小',
+  inputNumber: '数字输入框',
+  date: '选择日期',
+  slider: '滑动输入条',
+  title: '标题',
+  fieldProps: '文本属性',
+  fieldProps2: '第二个文本属性',
+  placeholder: '提示文字',
+  required: '必填判断',
+  List: '选择框标题',
+  positionType: '表单方向样式(horizontal || vertical)',
 };
 export class WuFeng {
   constructor() {
