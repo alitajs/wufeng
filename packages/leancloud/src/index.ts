@@ -1,7 +1,7 @@
 import AV from './AV';
 import register from './register';
-import { ResultTitles } from './constant';
+import logIn from './login';
 
 export * from './types';
-export { AV, register, ResultTitles };
+export { AV, register, logIn };
 export default AV;

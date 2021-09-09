@@ -1,13 +1,10 @@
 import type { FC } from 'react';
 import { useState, useEffect } from 'react';
 import { Form, Button, Col, Input, Popover, Progress, Row, Select, message } from 'antd';
-import type { Store } from 'antd/es/form/interface';
 import { Link, useRequest, history } from 'umi';
 import { Wufeng } from '@alita/icons';
 import { register } from '@alita/cloud';
-import type { RegisterResponse, ErrorResponse } from '@alita/cloud';
-import type { StateType } from './service';
-// import { fakeRegister } from './service';
+import type { RegisterProps, ErrorResponse } from '@alita/cloud';
 
 import styles from './index.less';
 
@@ -82,21 +79,13 @@ const Register: FC = () => {
     return 'poor';
   };
 
-  const onFinish = (values: Store) => {
-    const { mail, mobile, username, password } = values;
-
-    register({
-      username,
-      password,
-      phone: mobile,
-      email: mail,
-    }).then(
-      (data: RegisterResponse) => {
-        console.log(data);
+  const onFinish = (values: RegisterProps) => {
+    register(values).then(
+      (data: any) => {
         if (data.attributes) {
           message.success('注册成功！');
           history.push({
-            pathname: '/userRegisterResult',
+            pathname: '/registerResult',
             state: {
               account: data.attributes.username,
             },
@@ -104,7 +93,6 @@ const Register: FC = () => {
         }
       },
       (err: ErrorResponse) => {
-        console.log(err);
         message.error(err.rawMessage);
       },
     );
@@ -189,7 +177,7 @@ const Register: FC = () => {
               <Input size="large" placeholder="用户名" />
             </FormItem>
             <FormItem
-              name="mail"
+              name="email"
               rules={[
                 {
                   required: true,
@@ -256,13 +244,13 @@ const Register: FC = () => {
               <Input size="large" type="password" placeholder="确认密码" />
             </FormItem>
             <InputGroup compact>
-              <Select size="large" value={prefix} onChange={changePrefix} style={{ width: '21%' }}>
+              <Select size="large" value={prefix} onChange={changePrefix} style={{ width: '25%' }}>
                 <Option value="86">+86</Option>
                 <Option value="87">+87</Option>
               </Select>
               <FormItem
-                style={{ width: '79%' }}
-                name="mobile"
+                style={{ width: '75%' }}
+                name="phone"
                 rules={[
                   // {
                   //   required: true,

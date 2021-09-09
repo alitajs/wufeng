@@ -8,13 +8,11 @@ import {
 } from '@ant-design/icons';
 import { Alert, Space, message, Tabs } from 'antd';
 import React, { useState } from 'react';
-import ProForm, { ProFormCaptcha, ProFormCheckbox, ProFormText } from '@ant-design/pro-form';
+import ProForm, { ProFormCheckbox, ProFormText } from '@ant-design/pro-form';
 import { Link, history } from 'alita';
 import { Wufeng } from '@alita/icons';
-
-import { login } from '@/services/ant-design-pro/api';
-import { getFakeCaptcha } from '@/services/ant-design-pro/login';
-
+import { logIn } from '@alita/cloud';
+import type { LogInType, LogInProps, ErrorResponse } from '@alita/cloud';
 import styles from './index.less';
 
 const LoginMessage: React.FC<{
@@ -33,7 +31,7 @@ const LoginMessage: React.FC<{
 const Login: React.FC = () => {
   const [submitting, setSubmitting] = useState(false);
   const [userLoginState, setUserLoginState] = useState<API.LoginResult>({});
-  const [type, setType] = useState<string>('account');
+  const [type, setType] = useState<LogInType>('account');
   // const { initialState, setInitialState } = useModel('@@initialState');
 
   const fetchUserInfo = async () => {
@@ -46,29 +44,31 @@ const Login: React.FC = () => {
     // }
   };
 
-  const handleSubmit = async (values: API.LoginParams) => {
+  const handleSubmit = async (values: LogInProps) => {
     setSubmitting(true);
-    try {
-      // 登录
-      const msg = await login({ ...values, type });
-      if (msg.status === 'ok') {
-        const defaultLoginSuccessMessage = '登录成功！';
-        message.success(defaultLoginSuccessMessage);
-        await fetchUserInfo();
-        /** 此方法会跳转到 redirect 参数所在的位置 */
-        if (!history) return;
-        const { query } = history.location;
-        const { redirect } = query as { redirect: string };
-        history.push(redirect || '/');
-        return;
-      }
-      // 如果失败去设置用户错误信息
-      setUserLoginState(msg);
-    } catch (error) {
-      const defaultLoginFailureMessage = '登录失败，请重试！';
+    // try {
+    // 登录
+    logIn({ ...values, type }).then(
+      (data) => {
+        if (data) {
+          const defaultLoginSuccessMessage = '登录成功！';
+          message.success(defaultLoginSuccessMessage);
+          /** 此方法会跳转到 redirect 参数所在的位置 */
+          if (!history) return;
+          const { query } = history.location;
+          const { redirect } = query as { redirect: string };
+          history.push(redirect || '/');
+        }
+      },
+      (err: ErrorResponse) => {
+        setUserLoginState({ status: 'error', type });
+      },
+    );
+    // } catch (error) {
+    //   const defaultLoginFailureMessage = '登录失败，请重试！';
 
-      message.error(defaultLoginFailureMessage);
-    }
+    //   message.error(defaultLoginFailureMessage);
+    // }
     setSubmitting(false);
   };
   const { status, type: loginType } = userLoginState;
@@ -113,11 +113,11 @@ const Login: React.FC = () => {
           >
             <Tabs activeKey={type} onChange={setType}>
               <Tabs.TabPane key="account" tab="账户密码登录" />
-              <Tabs.TabPane key="mobile" tab="手机号登录" />
+              <Tabs.TabPane key="phone" tab="手机号登录" />
             </Tabs>
 
             {status === 'error' && loginType === 'account' && (
-              <LoginMessage content="账户或密码错误(admin/ant.design)" />
+              <LoginMessage content="账户或密码错误" />
             )}
             {type === 'account' && (
               <>
@@ -127,7 +127,7 @@ const Login: React.FC = () => {
                     size: 'large',
                     prefix: <UserOutlined className={styles.prefixIcon} />,
                   }}
-                  placeholder="用户名: admin or user"
+                  placeholder="用户名"
                   rules={[
                     {
                       required: true,
@@ -141,7 +141,7 @@ const Login: React.FC = () => {
                     size: 'large',
                     prefix: <LockOutlined className={styles.prefixIcon} />,
                   }}
-                  placeholder="密码: ant.design"
+                  placeholder="密码"
                   rules={[
                     {
                       required: true,
@@ -152,15 +152,15 @@ const Login: React.FC = () => {
               </>
             )}
 
-            {status === 'error' && loginType === 'mobile' && <LoginMessage content="验证码错误" />}
-            {type === 'mobile' && (
+            {status === 'error' && loginType === 'phone' && <LoginMessage content="验证码错误" />}
+            {type === 'phone' && (
               <>
                 <ProFormText
                   fieldProps={{
                     size: 'large',
                     prefix: <MobileOutlined className={styles.prefixIcon} />,
                   }}
-                  name="mobile"
+                  name="phone"
                   placeholder="手机号"
                   rules={[
                     {
@@ -173,7 +173,21 @@ const Login: React.FC = () => {
                     },
                   ]}
                 />
-                <ProFormCaptcha
+                <ProFormText.Password
+                  name="password"
+                  fieldProps={{
+                    size: 'large',
+                    prefix: <LockOutlined className={styles.prefixIcon} />,
+                  }}
+                  placeholder="密码"
+                  rules={[
+                    {
+                      required: true,
+                      message: '请输入密码！',
+                    },
+                  ]}
+                />
+                {/* <ProFormCaptcha
                   fieldProps={{
                     size: 'large',
                     prefix: <LockOutlined className={styles.prefixIcon} />,
@@ -204,7 +218,7 @@ const Login: React.FC = () => {
                     }
                     message.success('获取验证码成功！验证码为：1234');
                   }}
-                />
+                /> */}
               </>
             )}
             <div
@@ -219,8 +233,11 @@ const Login: React.FC = () => {
                 style={{
                   float: 'right',
                 }}
+                onClick={() => {
+                  history.push('/register');
+                }}
               >
-                忘记密码
+                注册
               </a>
             </div>
           </ProForm>
