@@ -1,11 +1,5 @@
 import AV from './AV';
-
-export interface RegisterProps {
-  username: string;
-  password: string;
-  phone?: string;
-  email?: string;
-}
+import type { RegisterProps } from './types';
 
 const register = ({ username, password, phone, email }: RegisterProps) => {
   const user = new AV.User();
