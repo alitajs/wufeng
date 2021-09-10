@@ -6,7 +6,7 @@ import './index.less';
 const CardComp: FC<CardProps> = ({ Icon, title, subTitle }) => {
   return (
     <Card hoverable>
-      <div className="wf-ware-card-icon">{<Icon />}</div>
+      {!!Icon && <div className="wf-ware-card-icon">{<Icon />}</div>}
       <div className="wf-ware-card-title">{title}</div>
       <div className="wf-ware-card-subTitle">{subTitle}</div>
     </Card>
