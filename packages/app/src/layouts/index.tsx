@@ -1,21 +1,17 @@
 import React from 'react';
 import type { FC } from 'react';
-import { Page, Content, Footer, Header } from '@alita/react';
-import { DndProvider } from '@alitajs/dnd';
-import { Header as WFHeader } from 'wufeng';
+import type { ConnectProps } from 'alita';
+import BasicLayout from './BasicLayout';
+import styles from './index.less';
 
-const Layout: FC = ({ children }) => {
-  return (
-    <DndProvider>
-      <Page>
-        <Header>
-          <WFHeader />
-        </Header>
-        <Content style={{ overflow: 'hidden', zIndex: 99 }}>{children}</Content>
-        <Footer>footer</Footer>
-      </Page>
-    </DndProvider>
-  );
+interface LayoutPageProps extends ConnectProps {}
+const Layout: FC<LayoutPageProps> = (props) => {
+  const { location } = props;
+  const { pathname } = location;
+  if (/\/register|login/i.test(pathname)) {
+    return <div className={styles.container}>{props.children}</div>;
+  }
+  return <BasicLayout {...props} />;
 };
 
 export default Layout;
