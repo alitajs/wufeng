@@ -18,7 +18,6 @@ const ComponentsWare: FC = () => {
           {components.map((item: Component, index: number) => {
             const { class: Com, cardProps, name, ...reset } = item;
             if (Com) {
-              console.log(name, Icons, Icons[dashToPascalCase(name)]);
               return (
                 <Drag data={reset} key={item.name}>
                   <Card
