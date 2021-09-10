@@ -31,4 +31,3 @@ export { default as Card } from './Card';
 export * from './utils';
 export * from '@alitajs/dnd';
 export * from '@wufeng/types';
-export * from './Card';
