@@ -15,14 +15,13 @@ const ComponentsWare: FC = () => {
     <Tabs centered>
       <TabPane tab="动态表单" key="1" style={{ padding: '0 10px' }}>
         <Grid columns={2} gap="10">
-          {components.map((item: Component, index: number) => {
-            const { class: Com, cardProps, name, ...reset } = item;
+          {components.map((item: Component) => {
+            const { class: Com, cardProps, ...reset } = item;
             if (Com) {
-              console.log(name, Icons, Icons[dashToPascalCase(name)]);
               return (
                 <Drag data={reset} key={item.name}>
                   <Card
-                    Icon={Icons[dashToPascalCase(name)]}
+                    Icon={Icons[dashToPascalCase(item.name)]}
                     title={cardProps?.title || ''}
                     subTitle={cardProps?.subTitle || ''}
                   />

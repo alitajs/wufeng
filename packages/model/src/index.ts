@@ -85,6 +85,7 @@ const WuFengModel: WuFengModelType = {
         });
         return;
       }
+
       const { components } = yield select((state: any) => state.wufeng);
       const data = addComponent(components, item, index === 'max' ? components.length : index);
       yield put({

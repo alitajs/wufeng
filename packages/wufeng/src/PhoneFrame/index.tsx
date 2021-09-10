@@ -1,5 +1,4 @@
 import type { FC } from 'react';
-import DynamicForm, { useForm } from '@alitajs/dform';
 import { Drop, Drag, wufengController } from '../';
 import type { DropTargetMonitor } from '../';
 import './index.less';
