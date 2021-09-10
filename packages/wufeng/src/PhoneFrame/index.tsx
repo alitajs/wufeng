@@ -46,8 +46,8 @@ const Device: FC<IDeviceProps> = ({ pageData = [], onAddDrop, onMoveDrop, onClic
         }}
       >
         {pageData.map((item, index) => {
-          const { type, props } = item.component;
-          const Com = components.find((i) => i.name === type);
+          const { name, props } = item.component;
+          const Com = components.find((i) => i.name === name);
           if (Com && Com.class) {
             return (
               <Drop
