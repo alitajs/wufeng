@@ -8,7 +8,7 @@ interface LayoutPageProps extends ConnectProps {}
 const Layout: FC<LayoutPageProps> = (props) => {
   const { location } = props;
   const { pathname } = location;
-  if (/\/register|login/i.test(pathname)) {
+  if (/\/register|login|workplace/i.test(pathname)) {
     return <div className={styles.container}>{props.children}</div>;
   }
   return <BasicLayout {...props} />;
