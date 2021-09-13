@@ -31,4 +31,3 @@ export { default as Header } from './Header';
 export * from './utils';
 export * from '@alitajs/dnd';
 export * from '@wufeng/types';
-export * as Card from './Card';

@@ -10,6 +10,13 @@
     lodash.debounce "^4.0.8"
     lodash.throttle "^4.1.1"
 
+"@alita/react@0.1.1":
+  version "0.1.1"
+  resolved "https://registry.npmjs.org/@alita/react/-/react-0.1.1.tgz#3f867468c7b67d386772678fb9cc0cabe1a6721f"
+  integrity sha512-1Mz9Uf46erAoNiQgK1/QweHGpfFb1msGsVh8cYjmcYZnOTRwT6JVip2xdN3XyhympIFfIdi9oucwjdIwDVr2bw==
+  dependencies:
+    yinhu "0.2.0"
+
 "@alitajs/aconsole@2.8.15-alpha.2":
   version "2.8.15-alpha.2"
   resolved "https://registry.yarnpkg.com/@alitajs/aconsole/-/aconsole-2.8.15-alpha.2.tgz#158101d8e205404b978b433b3fce16b2d74bbee9"
@@ -47,7 +54,7 @@
     tmp "^0.1.0"
     valid-identifier "^0.0.2"
 
-"@alitajs/dform@^3.x":
+"@alitajs/dform@3.0.5":
   version "3.0.5"
   resolved "https://registry.yarnpkg.com/@alitajs/dform/-/dform-3.0.5.tgz#98f73cec81d19748b9c33591302d0c15f3ac7a40"
   integrity sha512-+Cidb/3JKsnidus5C4i7MwIKVi2eHX3iZj65gSQ/9F49vOCsGAbF8zGwxpdRtxPHNTo/TunM5noa4ajc6LJBog==

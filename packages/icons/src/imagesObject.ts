@@ -10,5 +10,39 @@ images.forEach((image) => {
 });
 
 imagesObj['wufeng'] = WuFengLogoBase64;
+imagesObj['DformInput'] =
+  'https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/ed5f628e45d74c0db8dd2178cdd59fe5~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['DformPicker'] =
+  'https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/8af18c0d4c6b4c4d8f4062cd71982632~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['AddressPicker'] =
+  'https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/7c987c682dc8478ca832c2f4346c1798~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['DformCheckBox'] =
+  'https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/68b42052d069435eb6a8ac4df851c678~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['CoverRadio'] =
+  'https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/61367b06e5b647c99d777dad1d8c905e~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['DformCustom'] =
+  'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/0b546b8f96514d9eabf726ba199941da~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['DformDatePicker'] =
+  'https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/86d617271da24176ae7b224b6c034b71~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['MultiplePicker'] =
+  'https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4d1d8e8775bc472d9f2e44cbf0c857d4~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['DformRadio'] =
+  'https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/92d7ac89700145eeb0f87e2162a34b75~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['DformSelect'] =
+  'https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/1d4cac0fec7e4ad9acbf5626d48d99ec~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['DformSwitch'] =
+  'https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/421df53a61b74a53abbcbae6f714499d~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['DformTextArea'] =
+  'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/082b8fd9182e4a109f43ab9fc9b36e32~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['ExtraInput'] =
+  'https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/661f2ecf943c4e0c95513a73a345c34e~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['DformFile'] =
+  'https://p6-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/6aaeed76034145309e91570ac99d7e57~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['DformImagePicker'] =
+  'https://p1-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/4f88ae955aca43c787baed6a5b99bce8~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['RangeDatePicker'] =
+  'https://p3-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/b09e027e01544dcc8214ed5efd37dea9~tplv-k3u1fbpfcp-watermark.image';
+imagesObj['DformText'] =
+  'https://p9-juejin.byteimg.com/tos-cn-i-k3u1fbpfcp/2569571f93fe4c8f921cb057f617f53e~tplv-k3u1fbpfcp-watermark.image';
 
 export default imagesObj;
