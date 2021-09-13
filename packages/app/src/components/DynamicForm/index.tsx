@@ -1,44 +1,54 @@
-import { FC } from 'react';
-import Dform, { useForm } from '@alitajs/dform';
-import { Drop, Drag } from '@alitajs/dnd';
+import type { FC } from 'react';
+import { connect } from 'alita';
+import type { ConnectProps } from 'alita';
+import type { WuFengModelState } from 'wufeng-model';
+import type { DropTargetMonitor } from 'wufeng';
+import { Drop } from '@alitajs/dnd';
 
-interface DynamicFormProps {}
+interface DynamicFormProps extends ConnectProps {
+  wufeng: WuFengModelState;
+  parentId: string | number;
+}
 
-const DynamicForm: FC<DynamicFormProps> = () => {
-  const [form] = useForm();
+const DynamicForm: FC<DynamicFormProps> = ({ dispatch, parentId, wufeng, children }) => {
+  const onAddDrop = (item: any = {}, monitor: DropTargetMonitor, data: any = {}) => {
+    dispatch!({
+      type: 'wufeng/addItem',
+      payload: {
+        item,
+        parentId,
+      },
+    });
+  };
+
   return (
-    <Dform form={form}>
+    <div
+      style={{
+        height: '200px',
+        background: 'yellow',
+      }}
+    >
+      {children}
       <Drop
-        onDrop={() => {
-          console.log(12312312);
-        }}
-        onHover={() => {
-          console.log(12312312);
-        }}
+        onDrop={onAddDrop}
+        onHover={() => {}}
         data={{ panel: 'dform' }}
         onOverStyle={{
-          flex: 1,
+          height: '100%',
           border: '1px dashed',
         }}
         canDropStyle={{
-          flex: 1,
+          height: '100%',
           border: '1px dashed',
         }}
         style={{
-          flex: 1,
+          height: '100%',
           border: 0,
           overflowY: 'auto',
         }}
-      >
-        <div
-          style={{
-            height: '200px',
-            background: 'yellow',
-          }}
-        ></div>
-      </Drop>
-    </Dform>
+      ></Drop>
+    </div>
   );
 };
 
-export default DynamicForm;
+export default connect(({ wufeng }: { wufeng: WuFengModelState }) => ({ wufeng }))(DynamicForm);

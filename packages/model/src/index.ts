@@ -19,6 +19,7 @@ export interface WuFengModelType {
     moveItem: Effect;
     changeItemProp: Effect;
     downloadCode: Effect;
+    addchildrenCom: Effect;
   };
   reducers: {
     save: Reducer<WuFengModelState>;
@@ -92,6 +93,21 @@ const WuFengModel: WuFengModelType = {
         type: 'save',
         payload: {
           components: data,
+        },
+      });
+    },
+    *addchildrenCom({ payload }, { call, put, select }) {
+      const { parentId, item } = payload;
+      const { components } = yield select((state: any) => state.wufeng);
+      components.forEach((comp: any) => {
+        if (comp.id === parentId) {
+          comp.childrenCom.push(item);
+        }
+      });
+      yield put({
+        type: 'save',
+        payload: {
+          components,
         },
       });
     },

@@ -4,6 +4,7 @@ import type { ComponentGroup } from '@/schema';
 import * as Yinhu from '@alita/react';
 import { getItemByType } from './data_utils';
 import { DataComponet } from './data_componet';
+import DynamicForm from '@/components/DynamicForm';
 import DformComponent, { DformData } from './data_dform';
 import { DFORM_FILE_NAME } from './menu';
 
@@ -27,7 +28,8 @@ const antdMobile = ['accordion', 'action-sheet', 'button', 'icon'];
 // });
 
 wufengController.registerComponent(
-  dynamic(() => import(`../components/DynamicForm`).then((res) => res.default as any)),
+  // dynamic(() => import(`../components/DynamicForm`).then((res) => res.default as any)),
+  DynamicForm,
   {
     name: 'DynamicForm',
     id: 500000,
