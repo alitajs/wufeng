@@ -40,6 +40,8 @@ interface HeaderProps {
    * 其他
    */
   onOther?: () => void;
+  canUndo?: boolean;
+  canRedo?: boolean;
   /**
    * logo 如果没有，默认是 wufeng logo
    */
@@ -55,6 +57,8 @@ const Header: FC<HeaderProps> = ({
   onUndo = defaultAction('onUndo'),
   onRedo = defaultAction('onRedo'),
   onOther = defaultAction('onOther'),
+  canUndo,
+  canRedo,
   logo,
 }) => {
   const menuItem = [
@@ -82,24 +86,29 @@ const Header: FC<HeaderProps> = ({
   ];
   const otherItem = [
     {
-      title: '撤销',
-      type: 'onUndo',
-      icon: <LeftSquareOutlined />,
-      onClick: onUndo,
-    },
-    {
-      title: '重做',
-      type: 'onRedo',
-      icon: <RightCircleOutlined />,
-      onClick: onRedo,
-    },
-    {
       title: '其他功能',
       type: 'onOther',
       icon: <AppstoreAddOutlined />,
       onClick: onOther,
     },
   ];
+  if (canRedo) {
+    otherItem.unshift({
+      title: '重做',
+      type: 'onRedo',
+      icon: <RightCircleOutlined />,
+      onClick: onRedo,
+    });
+  }
+  if (canUndo) {
+    otherItem.unshift({
+      title: '撤销',
+      type: 'onUndo',
+      icon: <LeftSquareOutlined />,
+      onClick: onUndo,
+    });
+  }
+
   return (
     <Grid className={classPrefix} columns={4}>
       <GridItem span={3}>

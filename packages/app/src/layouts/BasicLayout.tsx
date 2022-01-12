@@ -6,7 +6,7 @@ import { connect } from 'alita';
 import type { ConnectProps } from 'alita';
 import { Header as WFHeader } from 'wufeng';
 import { WUFENG_LOCAL_NAME } from '@/constants';
-import type { WuFengModelState } from 'wufeng-model';
+import type { WuFengModelState } from '@wufengteam/model';
 import { savePage, getPage } from '@alita/cloud';
 
 interface LayoutPageProps extends ConnectProps {
@@ -14,7 +14,7 @@ interface LayoutPageProps extends ConnectProps {
 }
 const Layout: LayoutPageProps = ({ children, history, wufeng, dispatch }) => {
   const { location } = history;
-  const { components } = wufeng;
+  const { components, canUndo, canRedo } = wufeng;
 
   return (
     <DndProvider>
@@ -22,6 +22,20 @@ const Layout: LayoutPageProps = ({ children, history, wufeng, dispatch }) => {
         <Header>
           <WFHeader
             onShow={() => history.push('preview')}
+            onUndo={() => {
+              dispatch?.({
+                type: 'wufeng/unDo',
+                payload: {},
+              });
+            }}
+            onRedo={() => {
+              dispatch?.({
+                type: 'wufeng/reDo',
+                payload: {},
+              });
+            }}
+            canUndo={canUndo}
+            canRedo={canRedo}
             onSave={() => {
               const token = localStorage.getItem(WUFENG_LOCAL_NAME);
               if (token) {

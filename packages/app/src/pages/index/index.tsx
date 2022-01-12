@@ -4,7 +4,7 @@ import { connect, IRouteComponentProps } from 'alita';
 import type { ConnectProps } from 'alita';
 import { WFPage, WFComponentsWare, WFPhoneFrame, RateFrame } from 'wufeng';
 import type { DropTargetMonitor } from 'wufeng';
-import type { WuFengModelState } from 'wufeng-model';
+import type { WuFengModelState } from '@wufengteam/model';
 
 interface IndexPageProps extends ConnectProps {
   wufeng: WuFengModelState;
@@ -13,7 +13,6 @@ const IndexPage: FC<IndexPageProps> = ({ wufeng, dispatch }) => {
   const { components } = wufeng;
   const [selectItem, setSelectItem] = useState();
   const [selectElement, setSelectElement] = useState();
-  console.log(components);
   const onAddDrop = (item: any = {}, monitor: DropTargetMonitor, data: any = {}) => {
     // component 存在就不做任何事情，表示的是，拖动了已有项放到容器中，不做添加操作
     if (item.component) return;

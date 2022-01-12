@@ -10,7 +10,6 @@ interface PreviewPageProps extends ConnectProps {
 }
 const PreviewPage: FC<PreviewPageProps> = ({ wufeng, dispatch }) => {
   const { components } = wufeng;
-  console.log(components);
   return (
     <Fragment>
       <WFPreviewFrame pageData={components} />

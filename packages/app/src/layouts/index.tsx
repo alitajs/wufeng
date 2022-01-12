@@ -33,9 +33,8 @@ const Layout: FC<LayoutPageProps> = (props) => {
         (data) => {
           // 成功保存之后，执行其他逻辑
           const content = data[0].get('content');
-          console.log(content);
           dispatch?.({
-            type: 'wufeng/save',
+            type: 'wufeng/initPageData',
             payload: { components: JSON.parse(content) },
           });
         },

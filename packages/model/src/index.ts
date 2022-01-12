@@ -8,6 +8,10 @@ export interface WuFengModelState {
   sourceData: any[];
   components: any[];
   showItemData: any;
+  // 允许撤销
+  canUndo: boolean;
+  // 允许重做
+  canRedo: boolean;
 }
 
 export interface WuFengModelType {
@@ -15,6 +19,9 @@ export interface WuFengModelType {
   state: WuFengModelState;
   effects: {
     initSourceData: Effect;
+    initPageData: Effect;
+    unDo: Effect;
+    reDo: Effect;
     addItem: Effect;
     moveItem: Effect;
     changeItemProp: Effect;
@@ -27,6 +34,8 @@ export interface WuFengModelType {
     keyEvent: Subscription;
   };
 }
+const stack: WuFengModelState[] = [];
+let inverseStack: WuFengModelState[] = [];
 
 const WuFengModel: WuFengModelType = {
   namespace: 'wufeng',
@@ -35,6 +44,8 @@ const WuFengModel: WuFengModelType = {
     sourceData: [],
     components: [],
     showItemData: {},
+    canUndo: false,
+    canRedo: false,
   },
   subscriptions: {
     keyEvent({ dispatch }) {
@@ -63,15 +74,61 @@ const WuFengModel: WuFengModelType = {
   },
   reducers: {
     save(state, action) {
-      return { ...state, ...action.payload };
+      const { undoRedo, ...other } = action.payload;
+      let newState = { ...state, ...other };
+      let inverseState: WuFengModelState | undefined;
+      if (!undoRedo) {
+        // 只有保存撤销才能重做，重新操作之后，重做历史清空
+        if (inverseStack.length > 0) {
+          inverseStack = [];
+        }
+        stack.push(JSON.parse(JSON.stringify(newState)));
+      } else if (undoRedo === 'undo' && newState.canUndo) {
+        // 撤销
+        inverseState = stack.pop();
+        newState = JSON.parse(JSON.stringify(stack[stack.length - 1]));
+        inverseStack.push(JSON.parse(JSON.stringify(inverseState)));
+      } else if (undoRedo === 'redo' && newState.canRedo) {
+        // 重做
+        newState = inverseStack.pop();
+        stack.push(JSON.parse(JSON.stringify(newState)));
+      }
+      newState.canUndo = stack.length > 1;
+      newState.canRedo = !!inverseStack.length;
+      console.log(newState.components);
+      return newState;
     },
   },
   effects: {
+    *unDo({ payload }, { call, put, select }) {
+      yield put({
+        type: 'save',
+        payload: {
+          undoRedo: 'undo',
+        },
+      });
+    },
+    *reDo({ payload }, { call, put, select }) {
+      yield put({
+        type: 'save',
+        payload: {
+          undoRedo: 'redo',
+        },
+      });
+    },
     *initSourceData({ payload }, { call, put, select }) {
       yield put({
         type: 'save',
         payload: {
           sourceData: payload.sourceData,
+        },
+      });
+    },
+    *initPageData({ payload }, { call, put, select }) {
+      yield put({
+        type: 'save',
+        payload: {
+          components: payload.components,
         },
       });
     },
