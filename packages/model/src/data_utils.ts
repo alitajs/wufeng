@@ -1,4 +1,4 @@
-import type { ComponentProps, PageDataItem } from '@wufeng/types';
+import type { ComponentProps, PageDataItem } from '@wufengteam/types';
 import update from 'immutability-helper';
 
 // import { DataComponet } from "./data_componet";

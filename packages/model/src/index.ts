@@ -1,5 +1,5 @@
 // import { gPage } from "@/services/api";
-import { findItem, addComponent, moveComponent, deleteComponent } from './data_utils';
+import { addComponent, moveComponent, deleteComponent } from './data_utils';
 import type { Effect, Reducer, Subscription } from './connect';
 // TODO: test error
 // import keymaster from "keymaster";

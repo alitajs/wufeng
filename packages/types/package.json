@@ -1,5 +1,5 @@
 {
-  "name": "@wufeng/types",
+  "name": "@wufengteam/types",
   "version": "0.1.0",
   "description": "",
   "main": "dist/index.js",
@@ -19,5 +19,9 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "33521915374f609281ffd333fd5c13ccb738748e"
 }

@@ -1,6 +1,6 @@
 {
-  "name": "@wufeng/model",
-  "version": "0.1.0",
+  "name": "@wufengteam/model",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
@@ -20,7 +20,7 @@
   "keywords": [],
   "license": "ISC",
   "dependencies": {
-    "@wufeng/types": "0.1.0",
+    "@wufengteam/types": "0.1.0",
     "dva": "^2.4.1",
     "immutability-helper": "^3.1.1",
     "keymaster": "^1.6.2",
@@ -28,5 +28,9 @@
   },
   "devDependencies": {
     "@types/keymaster": "^1.6.30"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "33521915374f609281ffd333fd5c13ccb738748e"
 }

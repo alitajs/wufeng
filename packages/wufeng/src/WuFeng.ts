@@ -1,5 +1,5 @@
 import { version } from '../package.json';
-import type { Component, Input } from '@wufeng/types';
+import type { Component, Input } from '@wufengteam/types';
 
 export const isBrowser = typeof window !== 'undefined';
 

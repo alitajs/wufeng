@@ -20,5 +20,9 @@
   "license": "ISC",
   "dependencies": {
     "leancloud-storage": "^4.11.1"
-  }
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "gitHead": "33521915374f609281ffd333fd5c13ccb738748e"
 }

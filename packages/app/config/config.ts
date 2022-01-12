@@ -6,6 +6,6 @@ export default defineConfig({
   dva: {
     // immer: true,
     skipModelValidate: true,
-    extraModels: ['@wufeng/model'],
+    extraModels: ['@wufengteam/model'],
   },
 });

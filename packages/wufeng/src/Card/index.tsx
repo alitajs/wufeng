@@ -1,6 +1,6 @@
 import type { FC } from 'react';
 import { Card } from 'antd';
-import type { CardProps } from '@wufeng/types';
+import type { CardProps } from '@wufengteam/types';
 import './index.less';
 
 const CardComp: FC<CardProps> = ({ Icon, title, subTitle }) => {
