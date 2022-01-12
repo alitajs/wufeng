@@ -1,13 +1,13 @@
 {
   "name": "@alitajs/dnd",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "一个react的dnd封装，兼容手机端，简化用法。",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
   "unpkg": "./dist/index.umd.js",
   "scripts": {
     "build": "father-build",
-    "watch":"father-build -w",
+    "watch": "father-build -w",
     "publish": "npm publish --access public"
   },
   "repository": {
