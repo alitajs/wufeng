@@ -14,6 +14,7 @@ import { Wufeng } from '@alita/icons';
 import { logIn } from '@alita/cloud';
 import type { LogInType, LogInProps, ErrorResponse } from '@alita/cloud';
 import styles from './index.less';
+import { WUFENG_LOCAL_NAME } from '@/constants';
 
 const LoginMessage: React.FC<{
   content: string;
@@ -51,6 +52,7 @@ const Login: React.FC = () => {
     logIn({ ...values, type }).then(
       (data) => {
         if (data) {
+          localStorage.setItem(WUFENG_LOCAL_NAME, data.id || '');
           const defaultLoginSuccessMessage = '登录成功！';
           message.success(defaultLoginSuccessMessage);
           /** 此方法会跳转到 redirect 参数所在的位置 */

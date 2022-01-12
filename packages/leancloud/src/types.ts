@@ -33,6 +33,7 @@ export interface RegisterProps {
   phone?: string;
   email?: string;
 }
+
 export interface CloudResponse {
   attributes: any;
   changed: any;
@@ -51,4 +52,14 @@ export interface CloudResponse {
   _serverData: any;
   _sessionToken: string;
   _silent: any;
+}
+
+export interface SavePageProps {
+  id: string;
+  // TODO: page type
+  page: any[];
+}
+
+export interface GetPageProps {
+  id: string;
 }

@@ -1,12 +1,12 @@
 import AV from 'leancloud-storage';
 
-export const appId = 'AT5vBa2k58srGQfLmo28OmVz-gzGzoHsz';
-export const appKey = 'pu7KdtCyhW3E1bH2Eyihga7g';
+export const appId = 'Tvdh7rfGyfilIoUSFInV0acs-gzGzoHsz';
+export const appKey = '6gB5U2W7s2mqXqTXsRo8cJbE';
 
 AV.init({
   appId,
   appKey,
-  serverURLs: 'https://at5vba2k.lc-cn-n1-shared.com',
+  serverURLs: 'https://tvdh7rfg.lc-cn-n1-shared.com',
 });
 
 export default AV;

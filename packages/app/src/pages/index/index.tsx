@@ -13,7 +13,7 @@ const IndexPage: FC<IndexPageProps> = ({ wufeng, dispatch }) => {
   const { components } = wufeng;
   const [selectItem, setSelectItem] = useState();
   const [selectElement, setSelectElement] = useState();
-
+  console.log(components);
   const onAddDrop = (item: any = {}, monitor: DropTargetMonitor, data: any = {}) => {
     // component 存在就不做任何事情，表示的是，拖动了已有项放到容器中，不做添加操作
     if (item.component) return;
