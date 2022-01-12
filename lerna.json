@@ -12,7 +12,7 @@
     "publish": {
       "conventionalCommits": true,
       "message": "chore(release): publish",
-      "allowBranch": "main"
+      "allowBranch": "master"
     }
   },
   "ignoreChanges": ["**/*.md", "**/*.test.ts", "**/*.e2e.ts", "**/fixtures/**", "**/test/**"]
