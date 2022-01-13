@@ -24,6 +24,7 @@ export interface WuFengModelType {
     reDo: Effect;
     addItem: Effect;
     moveItem: Effect;
+    setShowItemData: Effect;
     changeItemProp: Effect;
     downloadCode: Effect;
   };
@@ -121,6 +122,14 @@ const WuFengModel: WuFengModelType = {
         type: 'save',
         payload: {
           sourceData: payload.sourceData,
+        },
+      });
+    },
+    *setShowItemData({ payload }, { call, put, select }) {
+      yield put({
+        type: 'save',
+        payload: {
+          showItemData: payload.showItemData,
         },
       });
     },

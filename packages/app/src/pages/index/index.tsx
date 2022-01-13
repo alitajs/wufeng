@@ -10,7 +10,7 @@ interface IndexPageProps extends ConnectProps {
   wufeng: WuFengModelState;
 }
 const IndexPage: FC<IndexPageProps> = ({ wufeng, dispatch }) => {
-  const { components } = wufeng;
+  const { components, showItemData } = wufeng;
   const [selectItem, setSelectItem] = useState();
   const [selectElement, setSelectElement] = useState();
   const onAddDrop = (item: any = {}, monitor: DropTargetMonitor, data: any = {}) => {
@@ -49,7 +49,13 @@ const IndexPage: FC<IndexPageProps> = ({ wufeng, dispatch }) => {
   };
   const onClick = (e, data) => {
     setSelectElement(e.target);
-    setSelectItem(data);
+    // setSelectItem(data);
+    dispatch?.({
+      type: 'wufeng/setShowItemData',
+      payload: {
+        showItemData: data,
+      },
+    });
   };
 
   return (
@@ -65,7 +71,7 @@ const IndexPage: FC<IndexPageProps> = ({ wufeng, dispatch }) => {
           />
         )}
         RateFrame={() => (
-          <RateFrame selectItem={selectItem} selectElement={selectElement} dispatch={dispatch} />
+          <RateFrame selectItem={showItemData} selectElement={selectElement} dispatch={dispatch} />
         )}
       />
     </Fragment>

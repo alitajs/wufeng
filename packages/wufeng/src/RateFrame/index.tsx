@@ -19,6 +19,12 @@ interface RateFrameProps {
 const RateFrame: FC<RateFrameProps> = ({ dispatch, selectItem, selectElement }) => {
   const changeItemProp = (data: any) => {
     dispatch?.({ type: 'wufeng/changeItemProp', payload: data });
+    dispatch?.({
+      type: 'wufeng/setShowItemData',
+      payload: {
+        showItemData: data,
+      },
+    });
   };
   return (
     <Tabs defaultActiveKey="props" className={classPrefix} centered>
