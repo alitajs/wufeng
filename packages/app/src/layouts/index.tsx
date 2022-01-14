@@ -20,7 +20,7 @@ const Layout: FC<LayoutPageProps> = (props) => {
     // onPageChange
     const token = localStorage.getItem(WUFENG_LOCAL_NAME);
     // 如果没有登录，重定向到 login
-    if (!token) {
+    if (!token && location.pathname !== '/register' && location.pathname !== '/login') {
       history.push(loginPath);
     }
   }, [location.pathname]);
