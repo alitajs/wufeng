@@ -1,15 +1,9 @@
 {
-  "name": "@wufengteam/types",
-  "version": "0.2.0",
+  "name": "factory",
+  "private": true,
+  "version": "1.1.1",
   "description": "",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "types": "src/index.ts",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "src",
-    "dist"
-  ],
+  "main": "index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/alitajs/wufeng.git"
@@ -24,8 +18,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "publishConfig": {
-    "access": "public"
-  },
-  "gitHead": "2354614da081e177fd64c9a6c405aafb2e1cd81a"
+  "dependencies": {
+    "react": ">=16.8.6",
+    "@wufengteam/core": "1.0.2"
+  }
 }

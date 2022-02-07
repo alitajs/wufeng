@@ -3,7 +3,7 @@ import type { FC } from 'react';
 import type { ConnectProps } from 'alita';
 import { connect } from 'alita';
 import styles from './index.less';
-import { wufengController as aa } from 'wufeng';
+import { wufengController as aa } from '@wufengteam/core';
 import { Button } from 'antd-mobile';
 // const { components } = wufeng;
 interface PageProps extends ConnectProps {

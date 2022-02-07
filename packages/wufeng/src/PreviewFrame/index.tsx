@@ -1,5 +1,5 @@
 import type { FC } from 'react';
-import { wufengController } from '../';
+import { wufengController } from '@wufengteam/core';
 import './index.less';
 
 interface IDeviceProps {

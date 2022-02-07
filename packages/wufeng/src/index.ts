@@ -1,4 +1,4 @@
-import { WuFeng, findItem } from './WuFeng';
+import { wufengController } from '@wufengteam/core';
 import { Input } from './BuiltInInputs';
 import { Select } from './BuiltInInputs';
 import { Switch } from './BuiltInInputs';
@@ -7,19 +7,32 @@ import { DatePicker } from './BuiltInInputs';
 import { Slider } from './BuiltInInputs';
 import { Radio } from './BuiltInInputs';
 
-const wufeng = new WuFeng();
-WuFeng.singletonInstance = wufeng;
+const defaultLabels = {
+  children: '内容',
+  type: '类型',
+  size: '字体大小',
+  inputNumber: '数字输入框',
+  date: '选择日期',
+  slider: '滑动输入条',
+  title: '标题',
+  fieldProps: '文本属性',
+  fieldProps2: '第二个文本属性',
+  placeholder: '提示文字',
+  required: '必填判断',
+  List: '选择框标题',
+  positionType: '表单方向样式(horizontal || vertical)',
+};
+wufengController.pushLabels(defaultLabels, 'zh-CN');
+// 方便组件注册
+// (window as any).wufeng = wufeng;
+wufengController.registerInput(Input, { name: 'string', type: 'string' });
+wufengController.registerInput(Select, { name: 'select', type: 'select' });
+wufengController.registerInput(Switch, { name: 'bool', type: 'bool' });
+wufengController.registerInput(InputNumber, { name: 'number', type: 'number' });
+wufengController.registerInput(DatePicker, { name: 'DateString', type: 'DateString' });
+wufengController.registerInput(Slider, { name: 'slider', type: 'slider' });
+wufengController.registerInput(Radio, { name: 'boolean', type: 'boolean' });
 
-wufeng.registerInput(Input, { name: 'string', type: 'string' });
-wufeng.registerInput(Select, { name: 'select', type: 'select' });
-wufeng.registerInput(Switch, { name: 'bool', type: 'bool' });
-wufeng.registerInput(InputNumber, { name: 'number', type: 'number' });
-wufeng.registerInput(DatePicker, { name: 'DateString', type: 'DateString' });
-wufeng.registerInput(Slider, { name: 'slider', type: 'slider' });
-wufeng.registerInput(Radio, { name: 'boolean', type: 'boolean' });
-
-export { wufeng as wufengController };
-export { findItem };
 export { default as WFPage } from './Page';
 export { default as WFComponentsWare } from './ComponentsWare';
 export { default as WFPhoneFrame } from './PhoneFrame';

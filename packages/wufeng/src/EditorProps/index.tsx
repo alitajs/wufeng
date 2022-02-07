@@ -6,7 +6,7 @@ import Collapse from 'antd/lib/collapse';
 import 'antd/lib/form/style/index';
 import 'antd/lib/button/style/index';
 import 'antd/lib/collapse/style/index';
-import { wufengController, findItem } from '../';
+import { wufengController, findItem } from '@wufengteam/core';
 
 type ChangeFunction = (data: any) => void;
 interface EditorPropsProps {
@@ -45,7 +45,8 @@ const EditorProps: FC<EditorPropsProps> = (props) => {
   const { inputComponents } = wufengController;
   const getChildren = (editElem: any) => {
     const { propTypes } = editElem;
-    return Object.keys(propTypes).map((key) => {
+    console.log(propTypes);
+    return Object.keys(propTypes || {}).map((key) => {
       let type = propTypes[key];
       const other = {} as any;
       // 是一个字符串数组，type 类型为 select

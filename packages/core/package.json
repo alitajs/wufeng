@@ -1,0 +1,27 @@
+{
+  "name": "@wufengteam/core",
+  "version": "1.0.2",
+  "description": "@wufengteam/core",
+  "main": "dist/index.js",
+  "types": "dist/src/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "father-build",
+    "watch": "father-build -w"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wufengteam/nocode"
+  },
+  "authors": [
+    "xiaohuoni <xiaohuoni@gmail.com> (https://github.com/xiaohuoni)"
+  ],
+  "license": "MIT",
+  "bugs": "https://github.com/wufengteam/nocode/issues",
+  "homepage": "https://github.com/wufengteam/nocode/tree/master/packages/core#readme",
+  "publishConfig": {
+    "access": "public"
+  }
+}

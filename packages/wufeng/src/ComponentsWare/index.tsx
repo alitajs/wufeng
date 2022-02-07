@@ -1,8 +1,9 @@
 import type { FC } from 'react';
 import { Tabs } from 'antd';
 import { Grid } from '@alita/react';
-import { wufengController, Card, dashToPascalCase } from '../';
-import type { Component } from '../';
+import { Card, dashToPascalCase } from '../';
+import { wufengController } from '@wufengteam/core';
+import type { Component } from '@wufengteam/core';
 import { Drag } from '@alitajs/dnd';
 import * as Icons from '@alita/icons';
 

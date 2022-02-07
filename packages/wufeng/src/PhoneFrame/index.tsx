@@ -1,5 +1,6 @@
 import type { FC } from 'react';
-import { Drop, Drag, wufengController } from '../';
+import { wufengController } from '@wufengteam/core';
+import { Drop, Drag } from '../';
 import type { DropTargetMonitor } from '../';
 import './index.less';
 
