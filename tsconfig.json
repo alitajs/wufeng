@@ -25,6 +25,7 @@
   },
   "include": [
     "./typings.d.ts",
+    "**/*.d.ts",
     "./.eslintrc.js",
     "**/packages/**/src/**/*",
     "**/docs/**/*",

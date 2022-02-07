@@ -1,5 +1,6 @@
+import type { Component, Input } from './types';
+// @ts-ignore
 import { version } from '../package.json';
-import type { Component, Input } from '@wufengteam/types';
 
 export const isBrowser = typeof window !== 'undefined';
 
@@ -23,22 +24,6 @@ export function findItem<T = any>(
   return null;
 }
 
-const defaultLabels = {
-  children: '内容',
-  type: '类型',
-  size: '字体大小',
-  inputNumber: '数字输入框',
-  date: '选择日期',
-  slider: '滑动输入条',
-  title: '标题',
-  fieldProps: '文本属性',
-  fieldProps2: '第二个文本属性',
-  placeholder: '提示文字',
-  required: '必填判断',
-  List: '选择框标题',
-  positionType: '表单方向样式(horizontal || vertical)',
-};
-
 export class WuFeng {
   constructor() {
     if (WuFeng.singletonInstance) {
@@ -55,14 +40,29 @@ export class WuFeng {
   // 右侧编辑的表单类型，有一个组件的属性是一些特定的操作，比如选择云上的图片，就不是简单的 input
   public inputComponents: Input[] = [];
 
-  public labels: any = defaultLabels;
+  // 所有需要翻译的标签
+  public labels: any = {};
 
-  public findLabel(key: any) {
-    return this.labels[key] || key;
+  // 默认国际化为中文 https://en.wikipedia.org/wiki/IETF_language_tag
+  public local: string = 'zh-CN';
+
+  public findLabel(key: string, local?: string) {
+    if (this.labels[local || this.local] && this.labels[local || this.local][key]) {
+      return this.labels[local || this.local][key];
+    }
+    return key;
   }
 
-  public registerLabels(key: any, value: Component) {
-    this.labels[key] = value;
+  public setLang(local: string) {
+    this.local = local;
+  }
+
+  public registerLabels(key: any, value: Component, local?: string) {
+    this.labels[local || this.local][key] = value;
+  }
+
+  public pushLabels(labels: object, local: string = 'zh-CN') {
+    this.labels[local] = { ...this.labels[local], ...labels };
   }
 
   public registerComponent(component: any, options: Component) {
@@ -105,3 +105,16 @@ export class WuFeng {
     }
   }
 }
+
+// eslint-disable-next-line
+let wufeng;
+if ((window as any).wufengController) {
+  wufeng = (window as any).wufengController;
+} else {
+  wufeng = new WuFeng();
+}
+WuFeng.singletonInstance = wufeng;
+
+// 将注册器挂载在全局，方便多个地方同时注册
+(window as any).wufengController = wufeng;
+export { wufeng as wufengController };

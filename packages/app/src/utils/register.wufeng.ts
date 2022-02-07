@@ -1,5 +1,5 @@
 import { dynamic } from 'alita';
-import { wufengController, dashToPascalCase } from 'wufeng';
+import { wufengController } from '@wufengteam/core';
 import type { ComponentGroup } from '@/schema';
 import * as Yinhu from '@alita/react';
 import { getItemByType } from './data_utils';
