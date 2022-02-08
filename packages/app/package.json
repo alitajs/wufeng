@@ -1,7 +1,7 @@
 {
   "name": "app",
   "private": true,
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "",
   "main": "index.js",
   "repository": {
@@ -18,16 +18,16 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@alita/cloud": "0.1.1",
-    "@alita/icons": "0.1.1",
+    "@alita/cloud": "0.2.0",
+    "@alita/icons": "0.2.0",
     "@alita/react": "0.1.1",
     "@alitajs/dform": "3.0.5",
-    "@alitajs/dnd": "1.1.1",
+    "@alitajs/dnd": "1.2.0",
     "@ant-design/pro-form": "^1.39.0",
     "@ant-design/pro-layout": "^6.32.3",
-    "@wufengteam/core": "1.0.2",
-    "@wufengteam/model": "0.1.0",
+    "@wufengteam/core": "1.1.0",
+    "@wufengteam/model": "0.2.0",
     "antd": "4.18.3",
-    "wufeng": "0.1.1"
+    "wufeng": "0.2.0"
   }
 }

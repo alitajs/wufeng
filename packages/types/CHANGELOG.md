@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.3.0](https://github.com/alitajs/wufeng/compare/@wufengteam/types@0.2.0...@wufengteam/types@0.3.0) (2022-02-08)
+
+
+### Features
+
+* publish ([81378e1](https://github.com/alitajs/wufeng/commit/81378e1b8a39bd2efd76d222f22f620f20d6be04))
+* wufeng plugins ([4476ea0](https://github.com/alitajs/wufeng/commit/4476ea022e773d2b36852ec04577d12194576028))
+
+
+
+
+
 # 0.2.0 (2022-01-12)
 
 

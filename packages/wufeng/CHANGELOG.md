@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [0.2.0](https://github.com/alitajs/wufeng/compare/wufeng@0.1.1...wufeng@0.2.0) (2022-02-08)
+
+
+### Bug Fixes
+
+* props editor init data ([6a0dad8](https://github.com/alitajs/wufeng/commit/6a0dad814ca82d05c9c65648dac67212c4faf1bb))
+
+
+### Features
+
+* add preview page ([138bf7e](https://github.com/alitajs/wufeng/commit/138bf7e596e0d3120698232f94ce028c317ef31e))
+* publish ([81378e1](https://github.com/alitajs/wufeng/commit/81378e1b8a39bd2efd76d222f22f620f20d6be04))
+* undo and redo ([a8eee03](https://github.com/alitajs/wufeng/commit/a8eee030f6566dea7ae04f18df9a72d1ebc0e673))
+* wufeng plugins ([4476ea0](https://github.com/alitajs/wufeng/commit/4476ea022e773d2b36852ec04577d12194576028))
+
+
+
+
+
 ## [0.1.1](https://github.com/alitajs/wufeng/compare/wufeng@0.1.0...wufeng@0.1.1) (2022-01-12)
 
 **Note:** Version bump only for package wufeng

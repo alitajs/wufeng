@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.2.0](https://github.com/alitajs/wufeng/compare/@alitajs/dnd@1.1.1...@alitajs/dnd@1.2.0) (2022-02-08)
+
+
+### Features
+
+* publish ([81378e1](https://github.com/alitajs/wufeng/commit/81378e1b8a39bd2efd76d222f22f620f20d6be04))
+
+
+
+
+
 ## [1.1.1](https://github.com/alitajs/wufeng/compare/@alitajs/dnd@1.1.0...@alitajs/dnd@1.1.1) (2022-01-12)
 
 **Note:** Version bump only for package @alitajs/dnd

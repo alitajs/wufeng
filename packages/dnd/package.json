@@ -1,6 +1,6 @@
 {
   "name": "@alitajs/dnd",
-  "version": "1.1.1",
+  "version": "1.2.0",
   "description": "一个react的dnd封装，兼容手机端，简化用法。",
   "main": "./dist/index.js",
   "module": "./dist/index.esm.js",
